@@ -18,8 +18,8 @@
 | Field | Type |
 | ----- | ---- |
 | roomId | `Number` | 
-| reviews| [`Reviews[]`](#Reviews) |
-| averageRating| [`AverageRating{}`](#Average-Rating)|
+| reviews| [`Reviews[]`](#Response-Property:-Reviews)|
+| averageRating| [`AverageRating{}`](#Response-Property:-Rating)|
 
 #### Response Property: Reviews
 | Field | Type |
