@@ -2,9 +2,9 @@ const db = require('./index.js');
 const Room = require('./Room.js');
 const faker = require('faker');
 
-const generate10Reviews = () => {
+const generate50Reviews = () => {
   var results = [];
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 50; i++) {
     var randomReview = {
       reviewee: faker.name.firstName(),
       revieweeAvatar: faker.image.imageUrl(),
@@ -33,7 +33,7 @@ const generate100Rooms = () => {
   for (var i = 0; i < 100; i++) {
     var randomRoom = {
       id: i,
-      reviews: generate10Reviews(),
+      reviews: generate50Reviews(),
       rating: generateAverageRating(),
     }
     results.push(randomRoom)
