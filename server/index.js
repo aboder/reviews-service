@@ -1,8 +1,11 @@
 const express = require('express');
+const path = require('path');
 const findReviewsForRoomAndGroup = require('../database/queries.js');
 const app = express()
 const PORT = 3000;
+const PUBLIC_DIR = path.join(__dirname, '..', '/public')
 
+app.use(express.static(PUBLIC_DIR))
 app.use(express.json())
 
 app.get('/api/reviews/:roomid/', (req, res) => {
