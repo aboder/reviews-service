@@ -3,7 +3,6 @@ const db = require('./index.js');
 
 const roomSchema = new mongoose.Schema({
   id: {type: Number, min: 0, max: 99},
-  name: String,
   reviews: [
     {
       reviewee: String,
@@ -13,7 +12,7 @@ const roomSchema = new mongoose.Schema({
     }
   ],
   rating: {
-    overall: {type: Number, min: 1, max: 5},
+    // overall: {type: Number, min: 1, max: 5},
     accuracy: {type: Number, min: 1, max: 5},
     location: {type: Number, min: 1, max: 5},
     cleanliness: {type: Number, min: 1, max: 5},
@@ -23,6 +22,6 @@ const roomSchema = new mongoose.Schema({
   }
 })
 
-const roomsModel = mongoose.model('rooms', roomSchema);
+const roomsModel = mongoose.model('room', roomSchema);
 
 module.exports = roomsModel
