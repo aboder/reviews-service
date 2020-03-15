@@ -1,0 +1,46 @@
+#app {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+#reviews {
+    grid-column: 4/12;
+    grid-row: 5/9;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 7fr 1fr
+}
+
+#ratingStar {
+    width: 40px;
+}
+
+#reviewsHeader {
+    grid-column: 1/-1;
+    background-color: green;
+}
+#reviewsHeader h3, input {
+    display: inline;
+    margin-left: 10px
+}
+#reviewsHeader input {
+    float: right;
+}
+
+#reviewsRatings {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    background-color: yellow;
+}
+
+#reviewsMain {
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    background-color: red;
+}
+
+#reviewsNavigator {
+    grid-column: 1/-1;
+    background-color: blue;
+}
