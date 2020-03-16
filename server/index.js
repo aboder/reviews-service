@@ -9,7 +9,7 @@ const PUBLIC_DIR = path.join(__dirname, '..', '/public')
 app.use(express.static(PUBLIC_DIR));
 app.use(express.json())
 
-app.get('/api/reviews/:roomid/', (req, res, next) => {  
+app.get('/api/reviews/:roomid/', (req, res) => {  
     helpers.findAndCacheRoom(req.params.roomid, (err, room) => {
       if (err) {
         res.sendStatus(500)
