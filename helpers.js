@@ -1,46 +1,44 @@
-const mongoose = require('mongoose');
 const Rooms = require('./database/Room.js');
 
-var cachedRoom = {};
-var maxNumOfReviewsInAGroup = 5;
+let cachedRoom = {};
+const maxReviews = 5;
 
-var findAndCacheRoom = (roomid, callback) => {
-    if (cachedRoom.id === roomid) {
-        callback(null, cachedRoom)
-    } else {
-        Rooms.findOne({id: roomid}, (err, room) => {
-            if (err) {
-                callback(err)
-            } else {
-                cachedRoom = room;
-                callback(null, cachedRoom)
-            }
-        })
-    }
-}
+const findAndCacheRoom = (roomid, callback) => {
+  if (cachedRoom.id === roomid) {
+    callback(null, cachedRoom);
+  } else {
+    Rooms.findOne({ id: roomid }, (err, room) => {
+      if (err) {
+        callback(err);
+      } else {
+        cachedRoom = room;
+        callback(null, cachedRoom);
+      }
+    });
+  }
+};
 
-var findReviewsForGroup = (selReviewGroup, callback) => {
-    var selReviewGroup = Number(selReviewGroup);
-    var reviews = []
-    if (isNaN(selReviewGroup)) {
-        reviews = cachedRoom.reviews.slice(0, maxNumOfReviewsInAGroup);
-    } else {
-        var selReviewGroupIsWithinBounds = (selReviewGroup + 1) * maxNumOfReviewsInAGroup <= cachedRoom.numOfReviews;
-        selReviewGroup = selReviewGroupIsWithinBounds ? selReviewGroup : 0 ;
-        var reviewsStart = selReviewGroup * maxNumOfReviewsInAGroup;
-        var reviewsEnd = reviewsStart + maxNumOfReviewsInAGroup;
+const findReviewsForGroup = (selReviewGroup, callback) => {
+  let reviewGroup = Number(selReviewGroup);
+  let reviews = [];
+  if (typeof reviewGroup !== 'number') {
+    reviews = cachedRoom.reviews.slice(0, maxReviews);
+  } else {
+    const reviewGroupIsWithinBounds = (reviewGroup + 1) * maxReviews <= cachedRoom.Reviews;
+    reviewGroup = reviewGroupIsWithinBounds ? reviewGroup : 0;
+    const reviewsStart = reviewGroup * maxReviews;
+    const reviewsEnd = reviewsStart + maxReviews;
 
-        reviews = cachedRoom.reviews.slice(reviewsStart, reviewsEnd);
-    }
-    callback(null, reviews);
-}
+    reviews = cachedRoom.reviews.slice(reviewsStart, reviewsEnd);
+  }
+  callback(null, reviews);
+};
 
 
 module.exports = {
-    findAndCacheRoom,
-    findReviewsForGroup,
-}
-
+  findAndCacheRoom,
+  findReviewsForGroup,
+};
 
 
 // var findReviewsForRoomAndGroup = (roomid, reviewgroup, callback) => {
@@ -49,16 +47,16 @@ module.exports = {
 //             callback(err)
 //         } else {
 //         // the user is able to request a sub-section of room reviews using a query param stylized as such: '?reviewgroup='.
-//             var selReviewGroup = Number(reviewgroup);
-//             var maxNumOfReviewsInAGroup = 5;
+//             var reviewGroup = Number(reviewgroup);
+//             var maxReviews = 5;
 
-//             if (isNaN(selReviewGroup)) {
-//                 room.reviews = room.reviews.slice(0, maxNumOfReviewsInAGroup);
+//             if (isNaN(reviewGroup)) {
+//                 room.reviews = room.reviews.slice(0, maxReviews);
 //             } else {
-//                 var selReviewGroupIsWithinBounds = (selReviewGroup + 1) * maxNumOfReviewsInAGroup <= room.reviews.length;
-//                 selReviewGroup = selReviewGroupIsWithinBounds ? selReviewGroup : 0 ;
-//                 var reviewsStart = selReviewGroup * maxNumOfReviewsInAGroup;
-//                 var reviewsEnd = reviewsStart + maxNumOfReviewsInAGroup;
+//                 var reviewGroupIsWithinBounds = (reviewGroup + 1) * maxReviews <= room.reviews.length;
+//                 reviewGroup = reviewGroupIsWithinBounds ? reviewGroup : 0 ;
+//                 var reviewsStart = reviewGroup * maxReviews;
+//                 var reviewsEnd = reviewsStart + maxReviews;
 
 //                 room.reviews = room.reviews.slice(reviewsStart, reviewsEnd);
 //             }
