@@ -11,8 +11,9 @@ const roomSchema = new mongoose.Schema({
       text: String
     }
   ],
+  numOfReviews: Number,
   rating: {
-    // overall: {type: Number, min: 1, max: 5},
+    overall: {type: Number, min: 1, max: 5},
     accuracy: {type: Number, min: 1, max: 5},
     location: {type: Number, min: 1, max: 5},
     cleanliness: {type: Number, min: 1, max: 5},

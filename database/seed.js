@@ -18,13 +18,19 @@ const generate50Reviews = () => {
 
 generateAverageRating = () => {
   var randomAverageRating = {
-    overall: faker.random.number({min:1, max:5}),
     accuracy: faker.random.number({min:1, max:5}),
     location: faker.random.number({min:1, max:5}),
     cleanliness: faker.random.number({min:1, max:5}),
     communication: faker.random.number({min:1, max:5}),
-    checkIn: faker.random.number({min:1, max:5})
+    checkIn: faker.random.number({min:1, max:5}),
   }
+  overallRating = 0
+  length = 0
+  for (key in randomAverageRating) {
+    overallRating += randomAverageRating[key];
+    length++
+  }
+  randomAverageRating.overall = overallRating / length
   return randomAverageRating
 }
 
@@ -36,6 +42,7 @@ const generate100Rooms = () => {
       reviews: generate50Reviews(),
       rating: generateAverageRating(),
     }
+    randomRoom.numOfReviews = randomRoom.reviews.length
     results.push(randomRoom)
   }
   return results
