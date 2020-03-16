@@ -14,13 +14,9 @@ app.get('/api/reviews/:roomid/', (req, res) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      helpers.findReviewsForGroup(req.query.reviewgroup, (err, reviews) => {
-        if (err) {
-          res.sendStatus(500);
-        } else {
-          room.reviews = reviews;
-          res.send(room);
-        }
+      helpers.findReviewsForGroup(req.query.reviewgroup, (reviews) => {
+        room.reviews = reviews;
+        res.send(room);
       });
     }
   });

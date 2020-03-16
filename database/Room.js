@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('./index.js');
 
 const roomSchema = new mongoose.Schema({
   id: { type: Number, min: 0, max: 99 },

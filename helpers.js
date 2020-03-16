@@ -24,14 +24,14 @@ const findReviewsForGroup = (selReviewGroup, callback) => {
   if (typeof reviewGroup !== 'number') {
     reviews = cachedRoom.reviews.slice(0, maxReviews);
   } else {
-    const reviewGroupIsWithinBounds = (reviewGroup + 1) * maxReviews <= cachedRoom.Reviews;
+    const reviewGroupIsWithinBounds = (reviewGroup + 1) * maxReviews <= cachedRoom.numOfReviews;
     reviewGroup = reviewGroupIsWithinBounds ? reviewGroup : 0;
     const reviewsStart = reviewGroup * maxReviews;
     const reviewsEnd = reviewsStart + maxReviews;
 
     reviews = cachedRoom.reviews.slice(reviewsStart, reviewsEnd);
   }
-  callback(null, reviews);
+  callback(reviews);
 };
 
 
