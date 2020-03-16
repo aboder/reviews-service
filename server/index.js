@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const helpers = require('../helpers.js');
+const findReviewsForRoomAndGroup = require('./helpers.js');
 
 const app = express();
 const PORT = 3000;
@@ -10,14 +10,11 @@ app.use(express.static(PUBLIC_DIR));
 app.use(express.json());
 
 app.get('/api/reviews/:roomid/', (req, res) => {
-  helpers.findAndCacheRoom(req.params.roomid, (err, room) => {
+  findReviewsForRoomAndGroup(req.params.roomid, req.query.reviewgroup, (err, room) => {
     if (err) {
       res.sendStatus(500);
     } else {
-      helpers.findReviewsForGroup(req.query.reviewgroup, (reviews) => {
-        room.reviews = reviews;
-        res.send(room);
-      });
+      res.send(room);
     }
   });
 });
