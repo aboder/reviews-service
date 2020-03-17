@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            reviews: []
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: 'Howdy',
+    };
+  }
 
-    render() {
-        return(
-            <h1>Howdy!</h1>
-        )
-    }
+  render() {
+    const { message } = this.state;
+    return (
+      <h1>{message}</h1>
+    );
+  }
 }
 export default App;
