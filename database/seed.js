@@ -1,13 +1,14 @@
 const faker = require('faker');
-const Room = require('./Room.js');
+const collections = require('./Room.js');
 
 
-const generate50Reviews = () => {
+const generate5000Reviews = () => {
   const results = [];
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < 5000; i += 1) {
     const randomReview = {
-      reviewee: faker.name.firstName(),
-      revieweeAvatar: faker.image.imageUrl(),
+      roomid: i % 100,
+      author: faker.name.firstName(),
+      authorsAvatar: faker.image.imageUrl(),
       createdAt: faker.date.past(5),
       text: faker.lorem.sentences(3, 3),
     };
@@ -40,17 +41,16 @@ const generate100Rooms = () => {
   for (let i = 0; i < 100; i += 1) {
     const randomRoom = {
       id: i,
-      reviews: generate50Reviews(),
       rating: generateAverageRating(),
     };
-    randomRoom.numOfReviews = randomRoom.reviews.length;
     results.push(randomRoom);
   }
   return results;
 };
 
-const insertRooms = () => {
-  Room.create(generate100Rooms());
+const insertRoomsAndReviews = () => {
+  collections.roomModel.create(generate100Rooms());
+  collections.reviewModel.create(generate5000Reviews());
 };
 
-insertRooms();
+insertRoomsAndReviews();

@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
-const findReviewsForRoomAndGroup = require('./helpers.js');
+const Promise = require('bluebird');
+const findRoomAndReviews = require('./helpers.js');
+const collections = require('../database/Room.js');
+
 
 const app = express();
 const PORT = 3000;
@@ -10,11 +13,15 @@ app.use(express.static(PUBLIC_DIR));
 app.use(express.json());
 
 app.get('/api/reviews/:roomid/', (req, res) => {
-  findReviewsForRoomAndGroup(req.params.roomid, req.query.reviewgroup, (err, room) => {
+  const { roomid } = req.params;
+  const { reviewgroup } = req.query;
+  findRoomAndReviews(roomid, reviewgroup, (err, result) => {
     if (err) {
       res.sendStatus(500);
+    } else if (result.reviews.length === 0) {
+      res.sendStatus(400);
     } else {
-      res.send(room);
+      res.send(result);
     }
   });
 });
