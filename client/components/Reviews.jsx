@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import ReviewsHeader from './ReviewsHeader.jsx'
+import Header from './Header.jsx';
+import RatingsList from './RatingsList.jsx';
 
 class Reviews extends Component {
   constructor(props) {
@@ -21,7 +22,10 @@ class Reviews extends Component {
   render() {
     const { rating } = this.state;
     return (
-      <ReviewsHeader rating={rating.overall} />
+      <div>
+        <Header rating={rating.overall} />
+        <RatingsList rating={rating} />
+      </div>
     );
   }
 }
