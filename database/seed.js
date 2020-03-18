@@ -54,3 +54,10 @@ const insertRoomsAndReviews = () => {
 };
 
 insertRoomsAndReviews();
+
+module.exports = {
+  generate5000Reviews,
+  generateAverageRating,
+  generate100Rooms,
+  insertRoomsAndReviews,
+};
