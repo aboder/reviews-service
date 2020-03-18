@@ -47,8 +47,11 @@ describe('db manipulation', () => {
     dbCollections.Room.create(mockRoom);
     dbCollections.Review.create(mockReview);
     dbCollections.Room.findOne({ id: 666 })
-      .then((insertedRoom) => expect(insertedRoom).toEqual(mockRoom));
+      .then((insertedRoom) => expect(insertedRoom).toEqual(mockRoom))
+      .catch(console.log);
+
     dbCollections.Review.findOne({ roomid: 666 })
-      .then((insertedReview) => expect(insertedReview).toEqual(mockReview));
+      .then((insertedReview) => expect(insertedReview).toEqual(mockReview))
+      .catch(console.log);
   });
 });
