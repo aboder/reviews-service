@@ -1,20 +1,34 @@
-const seedFunctions = require('./seed.js');
+const mongoose = require('mongoose');
+const seed = require('./seed.js');
+const dbCollections = require('./RoomAndReview.js');
+const util = require('./util.js');
 
-test('generate5000Reviews should generate an array containing 5000 objects', () => {
-  expect(seedFunctions.generate5000Reviews()).toHaveLength(5000);
-});
+describe('database is successfully seeded', () => {
+  let connection;
+  let db;
+  beforeAll(() => {
+    connection = mongoose.connect('mongodb://localhost/', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+      .catch((err) => {
+        console.error(err);
+      });
+    db = mongoose.connection;
+    dbCollections.Room.deleteMany({});
+    dbCollections.Review.deleteMany({});
+  });
+  afterAll(() => {
+    connection.close();
+    db.close();
+  });
 
-test('generateAverageRating should generate an object with the correct properties', () => {
-  expect(seedFunctions.generateAverageRating()).toMatchObject({
-    accuracy: expect.any(Number),
-    location: expect.any(Number),
-    cleanliness: expect.any(Number),
-    communication: expect.any(Number),
-    checkIn: expect.any(Number),
-    overall: expect.any(Number),
+  test('insertRoomsAndReviews to insert docs in the appropriate collections', () => {
+    dbCollections.Room.create(util.generate100Rooms());
+    dbCollections.Review.create(util.generate5000Reviews());
+    dbCollections.Room.find({})
+      .then(res => expect(res).toHaveLength(100));
+    dbCollections.Review.find({})
+      .then(res => expect(res).toHaveLength(5000));
   });
 });
-
-test('generate100Rooms should generate an array containing 100 objects', () => {
-  expect(seedFunctions.generate100Rooms()).toHaveLength(100);
-})

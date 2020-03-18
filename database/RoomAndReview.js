@@ -22,10 +22,10 @@ const reviewSchema = new mongoose.Schema({
   text: String,
 });
 
-const roomModel = mongoose.model('room', roomSchema);
-const reviewModel = mongoose.model('review', reviewSchema);
+const Room = mongoose.model('room', roomSchema);
+const Review = mongoose.model('review', reviewSchema);
 
 module.exports = {
-  roomModel,
-  reviewModel,
+  Room,
+  Review,
 };
