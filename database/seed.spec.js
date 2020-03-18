@@ -3,7 +3,7 @@ const seed = require('./seed.js');
 const dbCollections = require('./RoomAndReview.js');
 const util = require('./util.js');
 
-describe('database is successfully seeded', () => {
+describe('db manipulation', () => {
   let connection;
   let db;
   beforeAll(() => {
@@ -15,20 +15,40 @@ describe('database is successfully seeded', () => {
         console.error(err);
       });
     db = mongoose.connection;
-    dbCollections.Room.deleteMany({});
-    dbCollections.Review.deleteMany({});
   });
   afterAll(() => {
+    dbCollections.Room.deleteOne({ id: 666 });
+    dbCollections.Review.deleteOne({ roomid: 666 });
     connection.close();
     db.close();
   });
 
-  test('insertRoomsAndReviews to insert docs in the appropriate collections', () => {
-    dbCollections.Room.create(util.generate100Rooms());
-    dbCollections.Review.create(util.generate5000Reviews());
-    dbCollections.Room.find({})
-      .then(res => expect(res).toHaveLength(100));
-    dbCollections.Review.find({})
-      .then(res => expect(res).toHaveLength(5000));
+  test('should inserts docs into the collections', () => {
+    const mockRoom = {
+      id: 666,
+      rating: {
+        overall: 1,
+        accuracy: 1,
+        location: 1,
+        cleanliness: 1,
+        communication: 1,
+        checkIn: 1,
+        value: 1,
+      },
+    };
+    const mockReview = {
+      roomid: 666,
+      author: 'Satan',
+      authorsAvatar: 'hell.yahoo.com/img/Satan',
+      createdAt: '2020-03-04T10:00:04.542Z',
+      text: 'Worship me',
+    };
+
+    dbCollections.Room.create(mockRoom);
+    dbCollections.Review.create(mockReview);
+    dbCollections.Room.findOne({ id: 666 })
+      .then((insertedRoom) => expect(insertedRoom).toEqual(mockRoom));
+    dbCollections.Review.findOne({ roomid: 666 })
+      .then((insertedReview) => expect(insertedReview).toEqual(mockReview));
   });
 });
