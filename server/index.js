@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const Promise = require('bluebird');
 const findRoomAndReviews = require('./helpers.js');
-const collections = require('../database/Room.js');
+const collections = require('../database/RoomAndReview.js');
 
 
 const app = express();

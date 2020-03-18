@@ -1,9 +1,9 @@
 const Promise = require('bluebird');
-const collections = require('../database/Room.js');
+const dbCollections = require('../database/RoomAndReview.js');
 
 const findRoomAndReviews = (roomid, reviewgroup, callback) => {
-  const roomQuery = collections.roomModel.findOne({ id: roomid }, { _id: 0, __v: 0, id: 0 });
-  const reviewsQuery = collections.reviewModel.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
+  const roomQuery = dbCollections.Room.findOne({ id: roomid }, { _id: 0, __v: 0, id: 0 });
+  const reviewsQuery = dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
     .limit(5)
     .skip(reviewgroup * 5);
 
