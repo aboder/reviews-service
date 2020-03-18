@@ -3,8 +3,9 @@ import axios from 'axios';
 
 import Header from './Header';
 import RatingsList from './RatingsList';
+import ReviewsList from './ReviewsList';
 
-class Reviews extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,13 +21,14 @@ class Reviews extends Component {
   }
 
   render() {
-    const { rating } = this.state;
+    const { rating, reviews } = this.state;
     return (
       <div>
         <Header rating={rating.overall} />
         <RatingsList rating={rating} />
+        <ReviewsList reviews={reviews} />
       </div>
     );
   }
 }
-export default Reviews;
+export default App;

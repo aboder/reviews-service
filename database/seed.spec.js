@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const seed = require('./seed.js');
 const dbCollections = require('./RoomAndReview.js');
-const util = require('./util.js');
 
 describe('db manipulation', () => {
   let connection;
@@ -17,8 +15,13 @@ describe('db manipulation', () => {
     db = mongoose.connection;
   });
   afterAll(() => {
-    dbCollections.Room.deleteOne({ id: 666 });
-    dbCollections.Review.deleteOne({ roomid: 666 });
+    dbCollections.Room.deleteOne({ id: 666 })
+      .then(console.log)
+      .catch(console.log);
+
+    dbCollections.Review.deleteOne({ roomid: 666 })
+      .then(console.log)
+      .catch(console.log);
     connection.close();
     db.close();
   });
@@ -46,6 +49,7 @@ describe('db manipulation', () => {
 
     dbCollections.Room.create(mockRoom);
     dbCollections.Review.create(mockReview);
+
     dbCollections.Room.findOne({ id: 666 })
       .then((insertedRoom) => expect(insertedRoom).toEqual(mockRoom))
       .catch(console.log);
