@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Header from './Header.jsx';
-import RatingsList from './RatingsList.jsx';
+import Header from './Header';
+import RatingsList from './RatingsList';
 
 class Reviews extends Component {
   constructor(props) {

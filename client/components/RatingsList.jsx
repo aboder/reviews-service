@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingsListItem from './RatingsListItem.jsx'
+import RatingsListItem from './RatingsListItem';
 
 const RatingsList = (props) => {
   const { rating } = props;
