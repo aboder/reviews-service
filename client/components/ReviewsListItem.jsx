@@ -3,7 +3,7 @@ import React from 'react';
 const ReviewsListItem = (props) => {
   const { review } = props;
   return (
-    <div id='review'>
+    <div className='reviewsComponent-review'>
       {review.author}
       <br />
       {review.authorsAvatar}

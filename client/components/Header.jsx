@@ -4,7 +4,7 @@ const Header = (props) => {
   const { rating, numOfReviews } = props;
 
   return (
-    <div id='header'>
+    <div className='reviewsComponent-header'>
       <p>*STAR ICON* {rating} ({numOfReviews} reviews)</p>
     </div>
   );

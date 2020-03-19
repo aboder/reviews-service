@@ -39,7 +39,7 @@ class App extends Component {
       <div>
         <Header rating={rating.overall} numOfReviews={reviews.length} />
         <RatingsList rating={rating} />
-        <ReviewsList reviews={reviews.slice(0, 5)} />
+        <ReviewsList reviews={reviews} />
         <ModalButton switchModal={this.switchModal} text={modalButtonText} />
         <Modal mainState={this.state} switchModal={this.switchModal} />
       </div>
