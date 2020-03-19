@@ -45,6 +45,11 @@ class Pagination extends Component {
     if (newReviewGroupIsWithinBounds) {
       updateReviewGroup(newReviewGroup);
       this.handleStateChange(newReviewGroup);
+      const topOfReviewDiv = document.getElementById('reviewsComponent-reviews').offsetTop - 10;
+      window.scrollTo({
+        top: topOfReviewDiv,
+        behavior: 'smooth',
+      });
     }
   }
 

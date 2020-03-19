@@ -1,5 +1,6 @@
 #reviewsComponent {
-  width: 40%
+  width: 40%;
+  margin-left: 200px
 }
 
 /* HEADER */
@@ -17,6 +18,17 @@
   display: grid;
   grid-template-areas: 'ratings1 ratings2';
   margin-bottom: 20px
+}
+
+.ratingBar {
+  width: 100%;
+  background-color: grey;
+}
+
+.ratingBarValue {
+  width: 1%;
+  height: 30px;
+  background-color: green;
 }
 
 #reviewsComponent-ratings:nth-child(1) {
