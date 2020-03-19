@@ -69,10 +69,11 @@ class Pagination extends Component {
   render() {
     const previousButton = <button id='prev' onClick={()=>this.handleClick(-1)}>Prev</button>
     const nextButton = <button id='next' onClick={()=>this.handleClick(1)}>Next</button>
-
+    const currentGroup = this.props.reviewGroup + 1;
     return (
       <div>
         {previousButton}
+        {currentGroup}
         {nextButton}
       </div>
     );
