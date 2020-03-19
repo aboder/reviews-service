@@ -16,22 +16,14 @@ class App extends Component {
       modalView: false,
     };
     this.switchModal = this.switchModal.bind(this);
-    // this.waitForReviews = this.waitForReviews.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('/api/reviews/0/')
-      .then((res) => this.setState(res.data))
-      .catch(console.log);
-    // this.waitForReviews();
+  async componentDidMount() {
+    try {
+      const res = await axios.get('/api/reviews/0/');
+      this.setState(res.data);
+    } catch (error) { console.log(error); }
   }
-
-  // async waitForReviews() {
-  //   try {
-  //     const res = await axios.get('/api/reviews/0/');
-  //     this.setState(res.data);
-  //   } catch (error) { console.log(error); }
-  // }
 
   switchModal(e) {
     const { modalView } = this.state;
