@@ -1,3 +1,4 @@
 node_modules
 public/bundles.js
-coverage
+/coverage.data
+/coverage/
