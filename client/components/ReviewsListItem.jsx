@@ -3,7 +3,7 @@ import React from 'react';
 const ReviewsListItem = (props) => {
   const { review } = props;
   return (
-    <li>
+    <div id='review'>
       {review.author}
       <br />
       {review.authorsAvatar}
@@ -11,7 +11,7 @@ const ReviewsListItem = (props) => {
       {review.createdAt}
       <br />
       {review.text}
-    </li>
+    </div>
   );
 };
 

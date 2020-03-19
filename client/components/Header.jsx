@@ -1,12 +1,11 @@
 import React from 'react';
 
 const Header = (props) => {
-  const { rating } = props;
+  const { rating, numOfReviews } = props;
 
   return (
-    <div>
-      <h1>*STAR ICON* {rating}</h1>
-      <h1>*50* reviews</h1>
+    <div id='header'>
+      *STAR ICON* {rating} ({numOfReviews} reviews)
     </div>
   );
 };
