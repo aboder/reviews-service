@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     const { rating, reviews, reviewGroup } = this.state;
     return (
-      <div>
+      <div id='reviewsComponent'>
         <Header rating={rating.overall} />
         <RatingsList rating={rating} />
         <ReviewsList reviews={reviews} />

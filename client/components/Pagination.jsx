@@ -41,7 +41,7 @@ class Pagination extends Component {
   handleClick(direction) {
     const { reviewGroup, updateReviewGroup } = this.props;
     const newReviewGroup = reviewGroup + direction;
-    const newReviewGroupIsWithinBounds = newReviewGroup <= 9 && newReviewGroup >= 0;
+    const newReviewGroupIsWithinBounds = newReviewGroup <= 7 && newReviewGroup >= 0;
     if (newReviewGroupIsWithinBounds) {
       updateReviewGroup(newReviewGroup);
       this.handleStateChange(newReviewGroup);
@@ -50,7 +50,7 @@ class Pagination extends Component {
 
   handleStateChange(newReviewGroup) {
     const { previous, next } = this.state;
-    if ((newReviewGroup > 0 && newReviewGroup < 9) && (previous === false || next === false)) {
+    if ((newReviewGroup > 0 && newReviewGroup < 7) && (previous === false || next === false)) {
       this.setState({
         previous: true,
         next: true,
@@ -59,7 +59,7 @@ class Pagination extends Component {
       this.setState({
         previous: false,
       });
-    } else if (newReviewGroup === 9 && next === true) {
+    } else if (newReviewGroup === 7 && next === true) {
       this.setState({
         next: false,
       });

@@ -3,7 +3,7 @@ import React from 'react';
 const RatingsListItem = (props) => {
   const { ratingType, ratingValue } = props;
   return (
-    <li>{ratingType}: {ratingValue}</li>
+    <div className='reviewsComponent-rating'>{ratingType}: {ratingValue}</div>
   );
 };
 

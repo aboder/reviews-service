@@ -6,7 +6,7 @@ const generate5000Reviews = () => {
     const randomReview = {
       roomid: i % 100,
       author: faker.name.firstName(),
-      authorsAvatar: faker.image.imageUrl(),
+      authorsAvatar: faker.image.avatar(),
       createdAt: faker.date.past(5),
       text: faker.lorem.sentences(3, 3),
     };
@@ -22,6 +22,7 @@ const generateAverageRating = () => {
     cleanliness: faker.random.number({ min: 1, max: 5 }),
     communication: faker.random.number({ min: 1, max: 5 }),
     checkIn: faker.random.number({ min: 1, max: 5 }),
+    value: faker.random.number({ min: 1, max: 5 }),
   };
   let overallRating = 0;
   let length = 0;

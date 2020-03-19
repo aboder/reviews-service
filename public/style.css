@@ -1,0 +1,70 @@
+#reviewsComponent {
+  width: 40%
+}
+
+/* HEADER */
+#reviewsComponent-subheader h2, input {
+  display: inline;
+  margin-bottom: 20px
+}
+
+#reviewsComponent-subheader input {
+  float: right;
+}
+
+/* RATINGS */
+#reviewsComponent-ratings {
+  display: grid;
+  grid-template-areas: 'ratings1 ratings2';
+  margin-bottom: 20px
+}
+
+#reviewsComponent-ratings:nth-child(1) {
+  grid-area: ratings1;
+}
+#reviewsComponent-ratings:nth-child(2) {
+  grid-area: ratings1;
+}
+#reviewsComponent-ratings:nth-child(3) {
+  grid-area: ratings1;
+}
+
+#reviewsComponent-ratings:nth-child(n+4) {
+  grid-area: ratings2;
+}
+
+
+/* REVIEWS */
+.reviewsComponent-review {
+  display: grid;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom-style: solid;
+  grid-template-columns: 50px 1fr;
+  grid-template-areas: 
+    'avatar info '
+    'text text'
+}
+
+.reviewsComponent-review-avatar {
+  grid-area: avatar;
+}
+
+.reviewsComponent-review-info {
+  margin-left: 15px;
+  float: left;
+  grid-area: info;
+}
+.reviewsComponent-review-info p {
+margin-bottom: 5px;
+margin-top: 0px;
+}
+
+.reviewsComponent-review-text {
+  margin-top: 10px;
+  grid-area: text;
+}
+
+.reviewsComponent-review-avatar img {
+  width: 50px;
+}
