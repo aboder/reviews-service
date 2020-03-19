@@ -7,9 +7,7 @@ import ModalButton from './ModalButton';
 class Modal extends Component {
   constructor(props) {
     super(props);
-    const { mainState } = this.props;
     this.state = {
-      allReviews: mainState.reviews,
       visibleReviews: 5,
     };
   }
@@ -23,8 +21,8 @@ class Modal extends Component {
 
   render() {
     const { mainState, switchModal } = this.props;
-    const { modalView, rating } = mainState;
-    const { visibleReviews, allReviews } = this.state;
+    const { modalView, rating, reviews } = mainState;
+    const { visibleReviews } = this.state;
     const modalButtonText = 'X';
     if (modalView === false) {
       return null;
@@ -34,10 +32,10 @@ class Modal extends Component {
         <ModalButton switchModal={switchModal} text={modalButtonText} />
         <Header rating={rating.overall} />
         <RatingsList rating={rating} />
-        <ReviewsList reviews={allReviews.slice(0, visibleReviews)} />
+        <ReviewsList reviews={reviews.slice(0, visibleReviews)} />
       </div>
     );
   }
-};
+}
 
 export default Modal;
