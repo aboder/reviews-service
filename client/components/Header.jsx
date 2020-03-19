@@ -5,7 +5,7 @@ const Header = (props) => {
 
   return (
     <div id='header'>
-      *STAR ICON* {rating} ({numOfReviews} reviews)
+      <p>*STAR ICON* {rating} ({numOfReviews} reviews)</p>
     </div>
   );
 };

@@ -28,11 +28,13 @@ class Modal extends Component {
       return null;
     }
     return (
-      <div id='reviewModal'>
-        <ModalButton switchModal={switchModal} text={modalButtonText} />
-        <Header rating={rating.overall} />
-        <RatingsList rating={rating} />
-        <ReviewsList reviews={reviews.slice(0, visibleReviews)} />
+      <div id='reviewModal' className='modal display-block'>
+        <div className='modal-main'>
+          <ModalButton switchModal={switchModal} text={modalButtonText} />
+          <Header rating={rating.overall} numOfReviews={reviews.length} />
+          <RatingsList rating={rating} />
+          <ReviewsList reviews={reviews.slice(0, visibleReviews)} />
+        </div>
       </div>
     );
   }
