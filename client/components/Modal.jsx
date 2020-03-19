@@ -57,7 +57,7 @@ class Modal extends Component {
     return (
       <div id="reviewsComponent-modal">
         <div id="reviewsComponent-modal-main">
-          <ModalButton switchModal={this.increaseVisibleReviews} text={modalButtonText} />
+          <ModalButton switchModal={switchModal} text={modalButtonText} />
           <Header rating={rating.overall} numOfReviews={reviews.length} />
           <RatingsList rating={rating} />
           <div id="reviewsScroller" onScroll={this.handleScroll}>

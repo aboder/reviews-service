@@ -36,7 +36,7 @@ class App extends Component {
     const { rating, reviews } = this.state;
     const modalButtonText = `Show all ${reviews.length} reviews`;
     return (
-      <div>
+      <div id="reviewsComponent">
         <Header rating={rating.overall} numOfReviews={reviews.length} />
         <RatingsList rating={rating} />
         <ReviewsList reviews={reviews} />

@@ -4,13 +4,12 @@ const ReviewsListItem = (props) => {
   const { review } = props;
   return (
     <div className='reviewsComponent-review'>
-      {review.author}
-      <br />
+      <h2>{review.author}</h2>
       {review.authorsAvatar}
       <br />
       {review.createdAt}
       <br />
-      {review.text}
+      <p>{review.text}</p>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 const ModalButton = (props) => {
   const { switchModal, text } = props;
   return (
-    <button onClick={e => {switchModal()}}>{text}</button>
+    <button className="reviewsComponent-modalButton" onClick={e => {switchModal()}}>{text}</button>
   );
 };
 
