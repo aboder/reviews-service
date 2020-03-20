@@ -15,8 +15,8 @@ class App extends Component {
       reviewGroup: 0,
     };
     this.updateReviewGroup = this.updateReviewGroup.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-    this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
+    // this.handleScroll = this.handleScroll.bind(this);
+    // this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
   }
 
   componentDidMount() {
@@ -57,11 +57,11 @@ class App extends Component {
   //   } catch (error) { console.log(error); }
   // }
 
-  // updateReviewGroup(newReviewGroup) {
-  //   this.setState({
-  //     reviewGroup: newReviewGroup,
-  //   });
-  // }
+  updateReviewGroup(newReviewGroup) {
+    this.setState({
+      reviewGroup: newReviewGroup,
+    });
+  }
 
   render() {
     const { rating, reviews, reviewGroup } = this.state;
@@ -70,7 +70,7 @@ class App extends Component {
         <Header rating={rating.overall} />
         <RatingsList rating={rating} />
         {/* <div id="reviewsScroller" onScroll={this.handleScroll}> */}
-          <ReviewsList reviews={reviews} />
+        <ReviewsList reviews={reviews} />
         {/* </div> */}
         <Pagination reviewGroup={reviewGroup} updateReviewGroup={this.updateReviewGroup} />
       </div>
