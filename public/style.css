@@ -3,11 +3,6 @@ body {
   display: grid;
 }
 
-#reviewsScroller {
-  height: 1000px;
-  overflow: scroll;
-}
-
 #reviewsComponent {
   width: 40%;
   margin-left: 200px;

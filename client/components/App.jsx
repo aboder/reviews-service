@@ -15,8 +15,6 @@ class App extends Component {
       reviewGroup: 0,
     };
     this.updateReviewGroup = this.updateReviewGroup.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-    this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
   }
 
   componentDidMount() {
@@ -36,26 +34,6 @@ class App extends Component {
     }
   }
 
-  handleScroll(e) {
-    const element = e.target;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      this.increaseVisibleReviews();
-    }
-  }
-
-  async increaseVisibleReviews() {
-    try {
-      const { reviewGroup, reviews } = this.state;
-      const updatedReviewGroup = reviewGroup + 1;
-      const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${updatedReviewGroup}`);
-      let updatedReviews = reviews;
-      updatedReviews = updatedReviews.concat(additionalReviews.data.reviews);
-      this.setState({
-        reviews: updatedReviews,
-        reviewGroup: updatedReviewGroup,
-      });
-    } catch (error) { console.log(error); }
-  }
 
   updateReviewGroup(newReviewGroup) {
     this.setState({
@@ -69,10 +47,8 @@ class App extends Component {
       <div id='reviewsComponent'>
         <Header rating={rating.overall} />
         <RatingsList rating={rating} />
-        <div id="reviewsScroller" onScroll={this.handleScroll}>
-          <ReviewsList reviews={reviews} />
-        </div>
-        {/* <Pagination reviewGroup={reviewGroup} updateReviewGroup={this.updateReviewGroup} /> */}
+        <ReviewsList reviews={reviews} />
+        <Pagination reviewGroup={reviewGroup} updateReviewGroup={this.updateReviewGroup} />
       </div>
     );
   }
