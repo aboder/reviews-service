@@ -31,7 +31,7 @@ const generateAverageRating = () => {
     overallRating += randomAverageRating[ratingKeys[i]];
     length += 1;
   }
-  randomAverageRating.overall = (overallRating / length).toFixed(2);
+  randomAverageRating.overall = (overallRating / length);
   return randomAverageRating;
 };
 

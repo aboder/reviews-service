@@ -1,6 +1,6 @@
-const util = require('./util.js');
+const util = require('../database/util.js');
 
-describe('seeding functions generate appropriate data', () => {
+describe('seeding functions', () => {
   test('generate5000Reviews should generate an array containing 5000 objects', () => {
     expect(util.generate5000Reviews()).toHaveLength(5000);
   });
