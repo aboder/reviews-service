@@ -21,4 +21,6 @@ const findRoomAndReviews = (roomid, reviewgroup, callback) => {
     .catch(() => callback('Error'));
 };
 
-module.exports = findRoomAndReviews;
+module.exports = {
+  findRoomAndReviews,
+};

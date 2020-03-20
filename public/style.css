@@ -3,10 +3,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-#reviewsScroller {
+/* #reviewsScroller {
   height: 600px;
   overflow: scroll;
-}
+} */
 
 #reviewsComponent {
   margin-left: 200px;
@@ -16,25 +16,29 @@ body {
     "header"
     "ratings"
     "reviews"
-    "pagination"
+    "pagination";
 }
 
 /* HEADER */
 #reviewsComponent-header {
   grid-area: header;
+  margin-bottom: 20px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: grey;
 }
 
 #reviewsComponent-subheader h2, input {
   display: inline;
-  margin-bottom: 20px
+  margin-bottom: 10px;
 }
 
 #reviewsComponent-subheader h2:nth-child(2) {
   padding-left: 10px;
   margin-left: 10px;
+  border-left-style: solid;
   border-width: 1px;
   border-color: grey;
-  border-left-style: solid;
 }
 
 #reviewsComponent-subheader input {
@@ -42,24 +46,25 @@ body {
   width: 170px;
   height: 30px;
   font-size: 14px;
-  
+  border-radius: 5px;
+  outline: none
 }
 
-#reviewsComponent-subheader :-ms-input-placeholder {
-  padding: 20px;
+::placeholder {
+  padding-left: 5px;
 }
 
 
 /* RATINGS */
 #reviewsComponent-ratings {
   grid-area: ratings;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 45% 10% 45%;
   grid-template-areas: 
     'ratings1 . ratings4'
     'ratings2 . ratings5'
     'ratings3 . ratings6';
-  margin-bottom: 20px;
 }
 
 .reviewsComponent-rating:nth-child(1) {
@@ -82,10 +87,12 @@ body {
 }
 
 .reviewsComponent-rating {
+  margin-bottom: 10px;
   display: grid;
+  color: rgb(65, 65, 65);
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 
-    'ratingType ratingBar ratingValue'
+    'ratingType ratingBar ratingValue';
 }
 
 .reviewsComponent-rating-type {
@@ -99,37 +106,41 @@ body {
 }
 
 .reviewsComponent-rating-bar {
-  width: 100px;
-  height: 5px;
-  background-color: grey;
   grid-area: ratingBar;
+  width: 100px;
+  height: 4px;
+  background-color: grey;
   justify-self: right;
   align-self: center;
-  margin-right: 10px
+  margin-right: 10px;
+  border-radius: 25px;
 }
 
 .reviewsComponent-rating-barValue {
-  height: 5px;
+  height: 4px;
   background-color: green;
+  border-radius: 25px;
 }
 
 
 /* REVIEWS */
 #reviewsComponent-reviews {
   grid-area: reviews;
+  height: 550px;
+  overflow: scroll;
 }
 
 .reviewsComponent-review {
-  display: grid;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  border-bottom-style: solid;
   border-width: 1px;
   border-color: grey;
-  border-bottom-style: solid;
   grid-template-columns: 50px 1fr;
+  display: grid;
   grid-template-areas: 
-    'avatar info '
-    'text text'
+    'avatar info'
+    'text text';
 }
 
 .reviewsComponent-review-avatar {
@@ -137,18 +148,25 @@ body {
 }
 
 .reviewsComponent-review-info {
-  margin-left: 15px;
   float: left;
+  margin-left: 15px;
   grid-area: info;
 }
 .reviewsComponent-review-info p {
-margin-bottom: 5px;
-margin-top: 0px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+.reviewsComponent-review-info p:nth-child(2) {
+  font-size: 14px;
+  color: rgb(65, 65, 65);
 }
 
 .reviewsComponent-review-text {
-  margin-top: 10px;
   grid-area: text;
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgb(65, 65, 65);
 }
 
 .reviewsComponent-review-avatar img {

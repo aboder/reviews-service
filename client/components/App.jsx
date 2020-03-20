@@ -13,7 +13,6 @@ class App extends Component {
       reviews: [],
       reviewGroup: 0,
     };
-    this.updateReviewGroup = this.updateReviewGroup.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
   }
@@ -36,32 +35,23 @@ class App extends Component {
       const { reviewGroup, reviews } = this.state;
       const updatedReviewGroup = reviewGroup + 1;
       const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${updatedReviewGroup}`);
-      let updatedReviews = reviews;
-      updatedReviews = updatedReviews.concat(additionalReviews.data.reviews);
       this.setState({
-        reviews: updatedReviews,
         reviewGroup: updatedReviewGroup,
+        reviews: reviews.concat(additionalReviews.data.reviews),
       });
     } catch (error) { console.log(error); }
   }
 
-  updateReviewGroup(newReviewGroup) {
-    this.setState({
-      reviewGroup: newReviewGroup,
-    });
-  }
-
   render() {
-    const { rating, reviews, reviewGroup } = this.state;
+    const { rating, reviews } = this.state;
     return (
       <div id='reviewsComponent'>
         <Header rating={rating.overall} />
         <RatingsList rating={rating} />
-        <div id="reviewsScroller" onScroll={this.handleScroll}>
-          <ReviewsList reviews={reviews} />
-        </div>
+        <ReviewsList reviews={reviews} handleScroll={this.handleScroll} />
       </div>
     );
   }
 }
+
 export default App;
