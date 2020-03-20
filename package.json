@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/Air-Tree-n-Tree/reviews-service#readme",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/runtime": "^7.8.7",
     "axios": "^0.19.2",
     "bluebird": "^3.7.2",
     "express": "^4.17.1",
