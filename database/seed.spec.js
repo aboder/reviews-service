@@ -35,7 +35,7 @@ describe('db manipulation', () => {
         location: 1,
         cleanliness: 1,
         communication: 1,
-        checkIn: 1,
+        checkin: 1,
         value: 1,
       },
     };

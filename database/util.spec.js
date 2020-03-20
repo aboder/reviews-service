@@ -7,11 +7,12 @@ describe('seeding functions generate appropriate data', () => {
 
   test('generateAverageRating should generate an object with the correct properties', () => {
     expect(util.generateAverageRating()).toMatchObject({
-      accuracy: expect.any(Number),
-      location: expect.any(Number),
-      cleanliness: expect.any(Number),
       communication: expect.any(Number),
-      checkIn: expect.any(Number),
+      location: expect.any(Number),
+      value: expect.any(Number),
+      accuracy: expect.any(Number),
+      cleanliness: expect.any(Number),
+      checkin: expect.any(Number),
       overall: expect.any(Number),
     });
   });

@@ -17,12 +17,12 @@ const generate5000Reviews = () => {
 
 const generateAverageRating = () => {
   const randomAverageRating = {
-    accuracy: faker.random.number({ min: 1, max: 5 }),
-    location: faker.random.number({ min: 1, max: 5 }),
-    cleanliness: faker.random.number({ min: 1, max: 5 }),
     communication: faker.random.number({ min: 1, max: 5 }),
-    checkIn: faker.random.number({ min: 1, max: 5 }),
+    location: faker.random.number({ min: 1, max: 5 }),
     value: faker.random.number({ min: 1, max: 5 }),
+    checkin: faker.random.number({ min: 1, max: 5 }),
+    accuracy: faker.random.number({ min: 1, max: 5 }),
+    cleanliness: faker.random.number({ min: 1, max: 5 }),
   };
   let overallRating = 0;
   let length = 0;

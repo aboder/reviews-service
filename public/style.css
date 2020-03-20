@@ -1,16 +1,16 @@
 body {
-  font-family: 'Montserrat', sans-serif;
   display: grid;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #reviewsScroller {
-  height: 800px;
+  height: 600px;
   overflow: scroll;
 }
 
 #reviewsComponent {
-  width: 40%;
   margin-left: 200px;
+  width: 40%;
   display: grid;
   grid-template-areas: 
     "header"
@@ -39,6 +39,14 @@ body {
 
 #reviewsComponent-subheader input {
   float: right;
+  width: 170px;
+  height: 30px;
+  font-size: 14px;
+  
+}
+
+#reviewsComponent-subheader :-ms-input-placeholder {
+  padding: 20px;
 }
 
 
