@@ -1,3 +1,8 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: grid;
+}
+
 #reviewsComponent {
   width: 40%;
   margin-left: 200px;
@@ -22,6 +27,8 @@
 #reviewsComponent-subheader h2:nth-child(2) {
   padding-left: 10px;
   margin-left: 10px;
+  border-width: 1px;
+  border-color: grey;
   border-left-style: solid;
 }
 
@@ -29,10 +36,12 @@
   float: right;
 }
 
+
 /* RATINGS */
 #reviewsComponent-ratings {
   grid-area: ratings;
   display: grid;
+  grid-template-columns: 45% 10% 45%;
   grid-template-areas: 
     'ratings1 . ratings4'
     'ratings2 . ratings5'
@@ -101,6 +110,8 @@
   display: grid;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  border-width: 1px;
+  border-color: grey;
   border-bottom-style: solid;
   grid-template-columns: 50px 1fr;
   grid-template-areas: 
@@ -129,6 +140,7 @@ margin-top: 0px;
 
 .reviewsComponent-review-avatar img {
   width: 50px;
+  border-radius: 25px
 }
 
 #reviewsComponent-pagination {

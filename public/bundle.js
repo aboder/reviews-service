@@ -178,7 +178,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar ReviewsListItem = function ReviewsListItem(props) {\n  var review = props.review;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review-avatar\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"img\", {\n    src: review.authorsAvatar\n  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review-info\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\", null, review.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\", null, review.createdAt)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review-text\"\n  }, review.text));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ReviewsListItem);\n\n//# sourceURL=webpack:///./client/components/ReviewsListItem.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util.js */ \"./client/components/util.js\");\n\n\n\nvar ReviewsListItem = function ReviewsListItem(props) {\n  var review = props.review;\n  var convertedDate = Object(_util_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(review.createdAt);\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review-avatar\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"img\", {\n    src: review.authorsAvatar\n  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review-info\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\", null, review.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\", null, convertedDate)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"reviewsComponent-review-text\"\n  }, review.text));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ReviewsListItem);\n\n//# sourceURL=webpack:///./client/components/ReviewsListItem.jsx?");
+
+/***/ }),
+
+/***/ "./client/components/util.js":
+/*!***********************************!*\
+  !*** ./client/components/util.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar convertDate = function convertDate(date) {\n  var givenMonth = Number(date.slice(5, 7));\n  var months = ['Januray', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];\n  var convertedDate = \"\".concat(months[givenMonth - 1], \" \").concat(date.slice(0, 4));\n  return convertedDate;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (convertDate);\n\n//# sourceURL=webpack:///./client/components/util.js?");
 
 /***/ }),
 
