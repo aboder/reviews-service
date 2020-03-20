@@ -1,12 +1,28 @@
 #reviewsComponent {
   width: 40%;
-  margin-left: 200px
+  margin-left: 200px;
+  display: grid;
+  grid-template-areas: 
+    "header"
+    "ratings"
+    "reviews"
+    "pagination"
 }
 
 /* HEADER */
+#reviewsComponent-header {
+  grid-area: header;
+}
+
 #reviewsComponent-subheader h2, input {
   display: inline;
   margin-bottom: 20px
+}
+
+#reviewsComponent-subheader h2:nth-child(2) {
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left-style: solid;
 }
 
 #reviewsComponent-subheader input {
@@ -15,38 +31,72 @@
 
 /* RATINGS */
 #reviewsComponent-ratings {
+  grid-area: ratings;
   display: grid;
-  grid-template-areas: 'ratings1 ratings2';
-  margin-bottom: 20px
+  grid-template-areas: 
+    'ratings1 . ratings4'
+    'ratings2 . ratings5'
+    'ratings3 . ratings6';
+  margin-bottom: 20px;
 }
 
-.ratingBar {
-  width: 100%;
-  background-color: grey;
-}
-
-.ratingBarValue {
-  width: 1%;
-  height: 30px;
-  background-color: green;
-}
-
-#reviewsComponent-ratings:nth-child(1) {
+.reviewsComponent-rating:nth-child(1) {
   grid-area: ratings1;
 }
-#reviewsComponent-ratings:nth-child(2) {
-  grid-area: ratings1;
-}
-#reviewsComponent-ratings:nth-child(3) {
-  grid-area: ratings1;
-}
-
-#reviewsComponent-ratings:nth-child(n+4) {
+.reviewsComponent-rating:nth-child(2) {
   grid-area: ratings2;
+}
+.reviewsComponent-rating:nth-child(3) {
+  grid-area: ratings3;
+}
+.reviewsComponent-rating:nth-child(4) {
+  grid-area: ratings4;
+}
+.reviewsComponent-rating:nth-child(5) {
+  grid-area: ratings5;
+}
+.reviewsComponent-rating:nth-child(6) {
+  grid-area: ratings6;
+}
+
+.reviewsComponent-rating {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: 
+    'ratingType ratingBar ratingValue'
+}
+
+.reviewsComponent-rating-type {
+  grid-area: ratingType;
+  float: left;
+};
+
+.reviewsComponent-rating-value {
+  grid-area: ratingValue;
+  float: right;
+}
+
+.reviewsComponent-rating-bar {
+  width: 100px;
+  height: 5px;
+  background-color: grey;
+  grid-area: ratingBar;
+  justify-self: right;
+  align-self: center;
+  margin-right: 10px
+}
+
+.reviewsComponent-rating-barValue {
+  height: 5px;
+  background-color: green;
 }
 
 
 /* REVIEWS */
+#reviewsComponent-reviews {
+  grid-area: reviews;
+}
+
 .reviewsComponent-review {
   display: grid;
   margin-bottom: 20px;
@@ -79,4 +129,8 @@ margin-top: 0px;
 
 .reviewsComponent-review-avatar img {
   width: 50px;
+}
+
+#reviewsComponent-pagination {
+  grid-area: pagination;
 }

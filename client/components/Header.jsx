@@ -8,7 +8,7 @@ const Header = (props) => {
       <h1>Reviews</h1>
       <div id="reviewsComponent-subheader">
         <h2>* {rating}</h2>
-        <h2>*50* reviews</h2>
+        <h2>50 reviews</h2>
         <input placeholder='Search reviews'/>
       </div>
     </div>

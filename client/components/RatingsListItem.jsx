@@ -5,9 +5,9 @@ const RatingsListItem = (props) => {
   const { ratingType, ratingValue } = props;
   return (
     <div className="reviewsComponent-rating">
-      {ratingType}
+      <div className="reviewsComponent-rating-type">{ratingType}</div>
       <RatingBar rating={ratingValue} />
-      {ratingValue}
+      <div className="reviewsComponent-rating-value">{ratingValue}</div>
     </div>
   );
 };

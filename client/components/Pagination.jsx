@@ -76,7 +76,7 @@ class Pagination extends Component {
     const nextButton = <button id='next' onClick={()=>this.handleClick(1)}>Next</button>
     const currentGroup = this.props.reviewGroup + 1;
     return (
-      <div>
+      <div id="reviewsComponent-pagination">
         {previousButton}
         {currentGroup}
         {nextButton}
