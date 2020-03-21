@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const Promise = require('bluebird');
-const findRoomAndReviews = require('./helpers.js');
+const findRoomAndReviews = require('./util.js');
 const collections = require('../database/RoomAndReview.js');
 
 

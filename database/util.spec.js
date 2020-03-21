@@ -1,12 +1,12 @@
-const seedUtils = require('./util.js');
+const util = require('./util.js');
 
 describe('seeding functions generate appropriate data', () => {
   test('generate5000Reviews should generate an array containing 5000 objects', () => {
-    expect(seedUtils.generate5000Reviews()).toHaveLength(5000);
+    expect(util.generate5000Reviews()).toHaveLength(5000);
   });
 
   test('generateAverageRating should generate an object with the correct properties', () => {
-    expect(seedUtils.generateAverageRating()).toMatchObject({
+    expect(util.generateAverageRating()).toMatchObject({
       accuracy: expect.any(Number),
       location: expect.any(Number),
       cleanliness: expect.any(Number),
@@ -17,6 +17,6 @@ describe('seeding functions generate appropriate data', () => {
   });
 
   test('generate100Rooms should generate an array containing 100 objects', () => {
-    expect(seedUtils.generate100Rooms()).toHaveLength(100);
+    expect(util.generate100Rooms()).toHaveLength(100);
   });
 });

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1584566497824" clover="3.2.0">
+  <project timestamp="1584566497824" name="All files">
+    <metrics statements="53" coveredstatements="40" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="6" elements="67" coveredelements="46" complexity="0" loc="53" ncloc="53" packages="2" files="8" classes="8"/>
+    <package name="client.components">
+      <metrics statements="23" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="3"/>
+      <file name="App.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/App.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+      <file name="Header.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/Header.jsx">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="RatingsList.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/RatingsList.jsx">
+        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="RatingsListItem.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/RatingsListItem.jsx">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="ReviewsList.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/ReviewsList.jsx">
+        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="ReviewsListItem.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/ReviewsListItem.jsx">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="database">
+      <metrics statements="30" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="RoomAndReview.js" path="/Users/alexmitchell/Desktop/reviews-service/database/RoomAndReview.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+      <file name="util.js" path="/Users/alexmitchell/Desktop/reviews-service/database/util.js">
+        <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="5000" type="stmt"/>
+        <line num="13" count="5000" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="101" type="stmt"/>
+        <line num="26" count="101" type="stmt"/>
+        <line num="27" count="101" type="stmt"/>
+        <line num="28" count="101" type="stmt"/>
+        <line num="29" count="101" type="stmt"/>
+        <line num="30" count="505" type="stmt"/>
+        <line num="31" count="505" type="stmt"/>
+        <line num="33" count="101" type="stmt"/>
+        <line num="34" count="101" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="100" type="stmt"/>
+        <line num="44" count="100" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
