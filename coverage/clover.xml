@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584749580521" clover="3.2.0">
-  <project timestamp="1584749580521" name="All files">
-    <metrics statements="80" coveredstatements="50" conditionals="4" coveredconditionals="0" methods="19" coveredmethods="6" elements="103" coveredelements="56" complexity="0" loc="80" ncloc="80" packages="2" files="11" classes="11"/>
+<coverage generated="1584753660792" clover="3.2.0">
+  <project timestamp="1584753660793" name="All files">
+    <metrics statements="83" coveredstatements="59" conditionals="4" coveredconditionals="2" methods="18" coveredmethods="10" elements="105" coveredelements="71" complexity="0" loc="83" ncloc="83" packages="3" files="12" classes="12"/>
     <package name="client.components">
-      <metrics statements="43" coveredstatements="14" conditionals="4" coveredconditionals="0" methods="15" coveredmethods="3"/>
+      <metrics statements="45" coveredstatements="22" conditionals="4" coveredconditionals="2" methods="14" coveredmethods="7"/>
       <file name="App.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/App.jsx">
-        <metrics statements="17" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="3"/>
+        <metrics statements="19" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="3"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="29" count="0" type="stmt"/>
@@ -36,12 +38,12 @@
         <line num="4" count="0" type="stmt"/>
       </file>
       <file name="RatingsList.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/RatingsList.jsx">
-        <metrics statements="5" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="6" type="stmt"/>
       </file>
       <file name="RatingsListItem.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/RatingsListItem.jsx">
         <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -50,11 +52,11 @@
         <line num="6" count="0" type="stmt"/>
       </file>
       <file name="ReviewsList.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/ReviewsList.jsx">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
       </file>
       <file name="ReviewsListItem.jsx" path="/Users/alexmitchell/Desktop/reviews-service/client/components/ReviewsListItem.jsx">
         <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -119,6 +121,13 @@
         <line num="45" count="100" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="tests">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="mockData.js" path="/Users/alexmitchell/Desktop/reviews-service/tests/mockData.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
       </file>
     </package>
   </project>
