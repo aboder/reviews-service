@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {
       rating: {},
       reviews: [],
+      reviewGroup: 0,
+      numOfReviews: 0,
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
@@ -37,16 +39,16 @@ class App extends Component {
       const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${updatedReviewGroup}`);
       this.setState({
         reviewGroup: updatedReviewGroup,
-        reviews: reviews.concat(additionalReviews.data.reviews),
+        reviews: reviews.concat(additionalReviews.data),
       });
     } catch (error) { console.log(error); }
   }
 
   render() {
-    const { rating, reviews } = this.state;
+    const { rating, reviews, numOfReviews } = this.state;
     return (
       <div id='reviewsComponent'>
-        <Header rating={rating.overall} />
+        <Header rating={rating.overall} numOfReviews={numOfReviews} />
         <RatingsList rating={rating} />
         <ReviewsList reviews={reviews} handleScroll={this.handleScroll} />
       </div>

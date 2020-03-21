@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
-const Promise = require('bluebird');
 const util = require('./util.js');
-const collections = require('../database/RoomAndReview.js');
 
 const app = express();
 const PORT = 3000;
@@ -14,15 +12,25 @@ app.use(express.json());
 app.get('/api/reviews/:roomid/', (req, res) => {
   const { roomid } = req.params;
   const { reviewgroup } = req.query;
-  util.findRoomAndReviews(roomid, reviewgroup, (err, result) => {
-    if (err) {
-      res.sendStatus(500);
-    } else if (result.reviews.length === 0) {
-      res.sendStatus(400);
-    } else {
-      res.send(result);
-    }
-  });
+  if (reviewgroup === undefined) {
+    util.sendRoomsDefaultState(roomid, (err, result) => {
+      if (err) {
+        res.sendStatus(500);
+      } else {
+        res.send(result);
+      }
+    });
+  } else {
+    util.findGroupOfReviews(roomid, reviewgroup, (err, result) => {
+      if (err) {
+        res.sendStatus(500);
+      } else if (result.length === 0) {
+        res.sendStatus(400);
+      } else {
+        res.send(result);
+      }
+    });
+  }
 });
 
 app.listen(PORT, console.log(`Listening on port: ${PORT}`));
