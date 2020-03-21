@@ -1,17 +1,18 @@
-const util = require('./util.js');
+const util = require('../database/util.js');
 
-describe('seeding functions generate appropriate data', () => {
+describe('seeding functions', () => {
   test('generate5000Reviews should generate an array containing 5000 objects', () => {
     expect(util.generate5000Reviews()).toHaveLength(5000);
   });
 
   test('generateAverageRating should generate an object with the correct properties', () => {
     expect(util.generateAverageRating()).toMatchObject({
-      accuracy: expect.any(Number),
-      location: expect.any(Number),
-      cleanliness: expect.any(Number),
       communication: expect.any(Number),
-      checkIn: expect.any(Number),
+      location: expect.any(Number),
+      value: expect.any(Number),
+      accuracy: expect.any(Number),
+      cleanliness: expect.any(Number),
+      checkin: expect.any(Number),
       overall: expect.any(Number),
     });
   });

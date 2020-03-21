@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbCollections = require('./RoomAndReview.js');
+const dbCollections = require('../database/RoomAndReview');
 
 describe('db manipulation', () => {
   let connection;

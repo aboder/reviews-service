@@ -5,8 +5,8 @@ const findRoomAndReviews = (roomid, reviewgroup, callback) => {
   const roomQuery = dbCollections.Room.findOne({ id: roomid }, { _id: 0, __v: 0, id: 0 });
   const reviewsQuery = dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
     .sort({ createdAt: -1 })
-    .limit(5)
-    .skip(reviewgroup * 5);
+    .limit(7)
+    .skip(reviewgroup * 7);
 
   Promise.all([
     roomQuery.exec(),
@@ -21,4 +21,6 @@ const findRoomAndReviews = (roomid, reviewgroup, callback) => {
     .catch(() => callback('Error'));
 };
 
-module.exports = findRoomAndReviews;
+module.exports = {
+  findRoomAndReviews,
+};

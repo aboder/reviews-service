@@ -6,7 +6,7 @@ const generate5000Reviews = () => {
     const randomReview = {
       roomid: i % 100,
       author: faker.name.firstName(),
-      authorsAvatar: faker.image.imageUrl(),
+      authorsAvatar: faker.image.avatar(),
       createdAt: faker.date.past(5),
       text: faker.lorem.sentences(3, 3),
     };
@@ -17,11 +17,12 @@ const generate5000Reviews = () => {
 
 const generateAverageRating = () => {
   const randomAverageRating = {
-    accuracy: faker.random.number({ min: 1, max: 5 }),
-    location: faker.random.number({ min: 1, max: 5 }),
-    cleanliness: faker.random.number({ min: 1, max: 5 }),
     communication: faker.random.number({ min: 1, max: 5 }),
-    checkIn: faker.random.number({ min: 1, max: 5 }),
+    location: faker.random.number({ min: 1, max: 5 }),
+    value: faker.random.number({ min: 1, max: 5 }),
+    checkin: faker.random.number({ min: 1, max: 5 }),
+    accuracy: faker.random.number({ min: 1, max: 5 }),
+    cleanliness: faker.random.number({ min: 1, max: 5 }),
   };
   let overallRating = 0;
   let length = 0;
@@ -30,7 +31,7 @@ const generateAverageRating = () => {
     overallRating += randomAverageRating[ratingKeys[i]];
     length += 1;
   }
-  randomAverageRating.overall = overallRating / length;
+  randomAverageRating.overall = (overallRating / length);
   return randomAverageRating;
 };
 

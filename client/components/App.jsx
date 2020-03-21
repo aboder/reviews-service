@@ -4,8 +4,6 @@ import axios from 'axios';
 import Header from './Header';
 import RatingsList from './RatingsList';
 import ReviewsList from './ReviewsList';
-import Modal from './Modal';
-import ModalButton from './ModalButton';
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +13,8 @@ class App extends Component {
       reviews: [],
       modalView: false,
     };
-    this.switchModal = this.switchModal.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
   }
 
   async componentDidMount() {
@@ -25,23 +24,32 @@ class App extends Component {
     } catch (error) { console.log(error); }
   }
 
-  switchModal(e) {
-    const { modalView } = this.state;
-    this.setState({
-      modalView: !modalView,
-    });
+  handleScroll(e) {
+    const element = e.target;
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      this.increaseVisibleReviews();
+    }
+  }
+
+  async increaseVisibleReviews() {
+    try {
+      const { reviewGroup, reviews } = this.state;
+      const updatedReviewGroup = reviewGroup + 1;
+      const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${updatedReviewGroup}`);
+      this.setState({
+        reviewGroup: updatedReviewGroup,
+        reviews: reviews.concat(additionalReviews.data.reviews),
+      });
+    } catch (error) { console.log(error); }
   }
 
   render() {
     const { rating, reviews } = this.state;
-    const modalButtonText = `Show all ${reviews.length} reviews`;
     return (
-      <div id="reviewsComponent">
-        <Header rating={rating.overall} numOfReviews={reviews.length} />
+      <div id='reviewsComponent'>
+        <Header rating={rating.overall} />
         <RatingsList rating={rating} />
-        <ReviewsList reviews={reviews} />
-        <ModalButton switchModal={this.switchModal} text={modalButtonText} />
-        <Modal mainState={this.state} switchModal={this.switchModal} />
+        <ReviewsList reviews={reviews} handleScroll={this.handleScroll} />
       </div>
     );
   }
