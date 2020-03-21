@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import App from '../client/components/App';
 import RatingsList from '../client/components/RatingsList';
 import ReviewsList from '../client/components/ReviewsList';
+import mockData from './mockData.js';
 
 describe('App rendering', () => {
   const shallowReview = shallow(<App />);
@@ -13,9 +14,9 @@ describe('App rendering', () => {
   });
 
   test('App should have the correct three children components', () => {
-    expect(shallowReview.find('Header').length).toEqual(1);
-    expect(reviewsList.length).toEqual(1);
-    expect(ratingsList.length).toEqual(1);
+    expect(shallowReview.find('Header')).toExist();
+    expect(reviewsList).toExist();
+    expect(ratingsList).toExist();
   });
 
   test('App should pass the correct props to the correct components', () => {
@@ -23,13 +24,13 @@ describe('App rendering', () => {
   });
 });
 
-// describe('Subcomponent rendering', () => {
-//   const shallowReviewsList = shallow(<ReviewsList />);
-//   const reviewsListItem = shallowReviewsList.find('RatingsListItem');
-//   const shallowRatingsList = shallow(<RatingsList />);
-//   const ratingsListItem = shallowRatingsList.find('RatingsListItem');
-//   test('All subcomponents should render', () => {
-//     expect(reviewsListItem.length).toEqual(1);
-//     expect(ratingsListItem.length).toEqual(1);
-//   });
-// });
+describe('Subcomponent rendering', () => {
+  const shallowReviewsList = shallow(<ReviewsList reviews={mockData.reviews} />);
+  const reviewsListItem = shallowReviewsList.find('ReviewsListItem');
+  const shallowRatingsList = shallow(<RatingsList rating={mockData.rating} />);
+  const ratingsListItem = shallowRatingsList.find('RatingsListItem');
+  test('All subcomponents should render', () => {
+    expect(reviewsListItem).toExist();
+    expect(ratingsListItem).toExist();
+  });
+});
