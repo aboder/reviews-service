@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import Header from './Header';
 import RatingsList from './RatingsList';
 import ReviewsList from './ReviewsList';
+import ModalButton from './ModalButton';
 
-class App extends Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: {},
       reviews: [],
-      modalView: false,
+      reviewGroup: 0,
     };
-    this.handleScroll = this.handleScroll.bind(this);
     this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   async componentDidMount() {
     try {
       const res = await axios.get('/api/reviews/0/');
-      this.setState(res.data);
+      this.setState({
+        reviews: res.data.reviews,
+      });
     } catch (error) { console.log(error); }
   }
 
@@ -36,23 +37,36 @@ class App extends Component {
       const { reviewGroup, reviews } = this.state;
       const updatedReviewGroup = reviewGroup + 1;
       const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${updatedReviewGroup}`);
+      let updatedReviews = reviews;
+      updatedReviews = updatedReviews.concat(additionalReviews.data.reviews);
       this.setState({
+        reviews: updatedReviews,
         reviewGroup: updatedReviewGroup,
-        reviews: reviews.concat(additionalReviews.data.reviews),
       });
     } catch (error) { console.log(error); }
   }
 
   render() {
-    const { rating, reviews } = this.state;
+    const { mainState, switchModal } = this.props;
+    const { modalView, rating } = mainState;
+    const { reviews } = this.state;
+    const modalButtonText = 'X';
+    if (modalView === false) {
+      return null;
+    }
     return (
-      <div id='reviewsComponent'>
-        <Header rating={rating.overall} />
-        <RatingsList rating={rating} />
-        <ReviewsList reviews={reviews} handleScroll={this.handleScroll} />
+      <div id="reviewsComponent-modal">
+        <div id="reviewsComponent-modal-main">
+          <ModalButton switchModal={switchModal} text={modalButtonText} />
+          <Header rating={rating.overall} numOfReviews={reviews.length} />
+          <RatingsList rating={rating} />
+          <div id="reviewsScroller" onScroll={this.handleScroll}>
+            <ReviewsList reviews={reviews} />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default Modal;
