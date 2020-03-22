@@ -121,8 +121,7 @@ body {
 /* REVIEWS */
 #reviewsComponent-reviews {
   grid-area: reviews;
-  height: 550px;
-  overflow: scroll;
+  height: 100%;
 }
 
 .reviewsComponent-review {

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from './Header';
 import RatingsList from './RatingsList';
 import ReviewsList from './ReviewsList';
+import Pagination from './Pagination';
 
 class App extends Component {
   constructor(props) {
@@ -14,8 +15,7 @@ class App extends Component {
       reviewGroup: 0,
       numOfReviews: 0,
     };
-    this.handleScroll = this.handleScroll.bind(this);
-    this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
+    this.updateReviews = this.updateReviews.bind(this);
   }
 
   async componentDidMount() {
@@ -25,32 +25,24 @@ class App extends Component {
     } catch (error) { console.log(error); }
   }
 
-  handleScroll(e) {
-    const element = e.target;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      this.increaseVisibleReviews();
-    }
-  }
-
-  async increaseVisibleReviews() {
+  async updateReviews(newReviewGroup) {
     try {
-      const { reviewGroup, reviews } = this.state;
-      const updatedReviewGroup = reviewGroup + 1;
-      const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${updatedReviewGroup}`);
+      const additionalReviews = await axios.get(`/api/reviews/0/?reviewgroup=${newReviewGroup}`);
       this.setState({
-        reviewGroup: updatedReviewGroup,
-        reviews: reviews.concat(additionalReviews.data),
+        reviewGroup: newReviewGroup,
+        reviews: additionalReviews.data,
       });
     } catch (error) { console.log(error); }
   }
 
   render() {
-    const { rating, reviews, numOfReviews } = this.state;
+    const { rating, reviews, numOfReviews, reviewGroup } = this.state;
     return (
       <div id='reviewsComponent'>
         <Header rating={rating.overall} numOfReviews={numOfReviews} />
         <RatingsList rating={rating} />
-        <ReviewsList reviews={reviews} handleScroll={this.handleScroll} />
+        <ReviewsList reviews={reviews} />
+        <Pagination reviewGroup={reviewGroup} numOfReviews={numOfReviews} updateReviews={this.updateReviews} />
       </div>
     );
   }
