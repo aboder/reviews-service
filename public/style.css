@@ -167,3 +167,8 @@ body {
   width: 50px;
   border-radius: 25px
 }
+
+/* Pagination */
+.reviewsComponent-pagination-button {
+  display: inline;
+}
