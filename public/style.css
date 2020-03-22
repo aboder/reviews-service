@@ -3,11 +3,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* #reviewsScroller {
-  height: 600px;
-  overflow: scroll;
-} */
-
 #reviewsComponent {
   margin-left: 200px;
   width: 40%;
@@ -172,8 +167,4 @@ body {
 .reviewsComponent-review-avatar img {
   width: 50px;
   border-radius: 25px
-}
-
-#reviewsComponent-pagination {
-  grid-area: pagination;
 }
