@@ -19,17 +19,17 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const { roomID } = this.props;
+    const { roomId } = this.props;
     try {
-      const res = await axios.get(`/api/reviews/${roomID}/`);
+      const res = await axios.get(`/api/reviews/${roomId}/`);
       this.setState(res.data);
     } catch (error) { console.log(error); }
   }
 
   async updateReviews(newReviewGroup) {
-    const { roomID } = this.props;
+    const { roomId } = this.props;
     try {
-      const additionalReviews = await axios.get(`/api/reviews/${roomID}/?reviewgroup=${newReviewGroup}`);
+      const additionalReviews = await axios.get(`/api/reviews/${roomId}/?reviewgroup=${newReviewGroup}`);
       this.setState({
         reviewGroup: newReviewGroup,
         reviews: additionalReviews.data,
