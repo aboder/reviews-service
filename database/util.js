@@ -8,7 +8,7 @@ const generate5000Reviews = () => {
       author: faker.name.firstName(),
       authorsAvatar: faker.image.avatar(),
       createdAt: faker.date.past(5),
-      text: faker.lorem.sentences(3, 3),
+      text: faker.lorem.sentences(3),
     };
     results.push(randomReview);
   }

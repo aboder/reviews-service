@@ -3,11 +3,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* #reviewsScroller {
-  height: 600px;
-  overflow: scroll;
-} */
-
 #reviewsComponent {
   margin-left: 200px;
   width: 40%;
@@ -126,8 +121,7 @@ body {
 /* REVIEWS */
 #reviewsComponent-reviews {
   grid-area: reviews;
-  height: 550px;
-  overflow: scroll;
+  height: 100%;
 }
 
 .reviewsComponent-review {
@@ -174,6 +168,23 @@ body {
   border-radius: 25px
 }
 
-#reviewsComponent-pagination {
-  grid-area: pagination;
+/* Pagination */
+#reviewsComponent-pagination div {
+  font-size: 20px;
+  display: inline;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pagination-highlighted-element {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(5, 77, 65);
+  border-radius: 25px;
+}
+
+.currentPage {
+  background-color: rgb(5, 77, 65);
+  color: white
 }
