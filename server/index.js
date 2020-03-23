@@ -3,7 +3,7 @@ const path = require('path');
 const util = require('./util.js');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const PUBLIC_DIR = path.join(__dirname, '..', '/public');
 
 app.use(express.static(PUBLIC_DIR));
