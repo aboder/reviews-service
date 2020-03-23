@@ -169,6 +169,22 @@ body {
 }
 
 /* Pagination */
-.reviewsComponent-pagination-button {
+#reviewsComponent-pagination div {
+  font-size: 20px;
   display: inline;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pagination-highlighted-element {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(5, 77, 65);
+  border-radius: 25px;
+}
+
+.currentPage {
+  background-color: rgb(5, 77, 65);
+  color: white
 }
