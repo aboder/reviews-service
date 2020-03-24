@@ -6,7 +6,7 @@ const findNumOfTotalReviews = (roomid, callback) => {
     .countDocuments()
     .exec((err, results) => {
       if (err) {
-        callback(err);
+        callback(err); 
       } else {
         callback(null, results);
       }
