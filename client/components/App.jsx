@@ -11,7 +11,6 @@ class App extends Component {
     this.state = {
       rating: {},
       reviews: [],
-      modalView: false,
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.increaseVisibleReviews = this.increaseVisibleReviews.bind(this);
