@@ -1,11 +1,9 @@
 const express = require('express');
 const path = require('path');
-const Promise = require('bluebird');
 const util = require('./util.js');
-const collections = require('../database/RoomAndReview.js');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const PUBLIC_DIR = path.join(__dirname, '..', '/public');
 
 app.use(express.static(PUBLIC_DIR));
