@@ -8,7 +8,6 @@ class Pagination extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-
   handleClick(newReviewGroup) {
     const { updateReviews, numOfReviews, visibleReviews } = this.props;
     const lastReviewGroup = numOfReviews % visibleReviews === 0 ? (numOfReviews / visibleReviews) - 1 : Math.floor(numOfReviews / visibleReviews);
@@ -24,7 +23,7 @@ class Pagination extends Component {
   }
 
   render() {
-    const { reviewGroup, numOfReviews } = this.props;
+    const { reviewGroup, numOfReviews, visibleReviews } = this.props;
     const lastReviewGroup = numOfReviews % visibleReviews === 0 ? (numOfReviews / visibleReviews) - 1 : Math.floor(numOfReviews / visibleReviews);
     const previousButtonText = reviewGroup !== 0 ? '< ' : 1;
     const nextButtonText = reviewGroup !== lastReviewGroup ? ' >' : lastReviewGroup + 1;

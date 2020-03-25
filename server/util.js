@@ -1,7 +1,6 @@
-// const Promise = require('bluebird');
 const dbCollections = require('../database/RoomAndReview.js');
 
-const visibleReviews = 5;
+const visibleReviews = 4;
 
 const findNumOfTotalReviews = (roomid, callback) => {
   dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
@@ -57,6 +56,7 @@ const sendRoomsDefaultState = (roomid, callback) => {
               callback(reviewErr);
             } else {
               defaultState.reviews = reviewResults;
+              defaultState.visibleReviews = reviewResults.length;
               callback(null, defaultState);
             }
           });

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import util from '../../server/util.js'
-
 import Header from './Header';
 import RatingsList from './RatingsList';
 import ReviewsList from './ReviewsList';
@@ -16,7 +14,7 @@ class App extends Component {
       reviews: [],
       reviewGroup: 0,
       numOfReviews: 0,
-      visibleReviews: util.visibleReviews,
+      visibleReviews: 0,
     };
     this.updateReviews = this.updateReviews.bind(this);
   }
@@ -47,7 +45,7 @@ class App extends Component {
         <Header rating={rating.overall} numOfReviews={numOfReviews} />
         <RatingsList rating={rating} />
         <ReviewsList reviews={reviews} />
-        <Pagination reviewGroup={reviewGroup} numOfReviews={numOfReviews} updateReviews={this.updateReviews} visibleReviews={visibleReviews}/>
+        <Pagination reviewGroup={reviewGroup} numOfReviews={numOfReviews} updateReviews={this.updateReviews} visibleReviews={visibleReviews} />
       </div>
     );
   }
