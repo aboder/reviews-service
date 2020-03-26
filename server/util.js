@@ -44,6 +44,8 @@ const sendRoomsDefaultState = (roomid, callback) => {
   findRoom(roomid, (roomErr, roomResults) => {
     if (roomErr) {
       callback(roomErr);
+    } else if (roomResults === null) {
+      callback('No room results found');
     } else {
       defaultState.rating = roomResults.rating;
       findNumOfTotalReviews(roomid, (lengthErr, lengthResults) => {

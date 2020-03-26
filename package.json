@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "boot": "nodemon server",
-    "db:setup": "node database/seed.js",
-    "build": "webpack -w",
+    "boot": "node server",
+    "seed": "node database/seed.js",
+    "build": "webpack",
     "lint": "eslint"
   },
   "repository": {
