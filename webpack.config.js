@@ -4,7 +4,6 @@ const SRC_DIR = path.join(__dirname, '/client');
 const PUBLIC_DIR = path.join(__dirname, '/public');
 
 module.exports = {
-  devtool: 'inline-source-map',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: PUBLIC_DIR,
@@ -27,5 +26,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  mode: 'development',
+  mode: 'production',
 };

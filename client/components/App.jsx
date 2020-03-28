@@ -22,7 +22,11 @@ class App extends Component {
   async componentDidMount() {
     const { roomId } = this.props;
     try {
-      const res = await axios.get(`/api/reviews/${roomId}/`);
+      const res = await axios.get(`/api/reviews/${roomId}/`, {
+        params: {
+          reviewgroup: 'default',
+        },
+      });
       this.setState(res.data);
     } catch (error) { console.log(error); }
   }

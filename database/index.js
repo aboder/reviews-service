@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://database:27017/';
+// const mongoUri = 'mongodb://172.17.0.3:27017/';
+
+// for docker-compose...
+// const mongoUri = 'mongodb://database:27017/';
+
+const mongoUri = 'mongodb://localhost/';
 
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,

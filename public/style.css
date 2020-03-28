@@ -4,6 +4,7 @@ body {
 }
 
 #reviewsComponent {
+  font-family: 'Montserrat', sans-serif;
   margin-left: 200px;
   width: 40%;
   display: grid;
@@ -21,6 +22,10 @@ body {
   border-bottom-style: solid;
   border-width: 1px;
   border-color: grey;
+}
+
+#reviewsComponent-header h1 {
+  margin-bottom: 20px;
 }
 
 #reviewsComponent-subheader h2, input {
