@@ -12,7 +12,8 @@ app.use(express.json());
 app.get('/api/reviews/:roomid/', (req, res) => {
   const { roomid } = req.params;
   const { reviewgroup } = req.query;
-  if (reviewgroup === undefined) {
+  console.log(req);
+  if (reviewgroup === 'default') {
     util.sendRoomsDefaultState(roomid, (err, result) => {
       if (err) {
         res.sendStatus(500);

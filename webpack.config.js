@@ -7,7 +7,7 @@ module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: PUBLIC_DIR,
-    filename: 'bundle.js',
+    filename: 'reviewsBundle.js',
   },
   module: {
     rules: [
@@ -26,5 +26,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  mode: 'development',
+  mode: 'production',
 };

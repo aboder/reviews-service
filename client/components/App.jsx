@@ -14,6 +14,7 @@ class App extends Component {
       reviews: [],
       reviewGroup: 0,
       numOfReviews: 0,
+      visibleReviews: 0,
     };
     this.updateReviews = this.updateReviews.bind(this);
   }
@@ -21,7 +22,11 @@ class App extends Component {
   async componentDidMount() {
     const { roomId } = this.props;
     try {
-      const res = await axios.get(`/api/reviews/${roomId}/`);
+      const res = await axios.get(`/api/reviews/${roomId}/`, {
+        params: {
+          reviewgroup: 'default',
+        },
+      });
       this.setState(res.data);
     } catch (error) { console.log(error); }
   }
@@ -38,13 +43,13 @@ class App extends Component {
   }
 
   render() {
-    const { rating, reviews, numOfReviews, reviewGroup } = this.state;
+    const { rating, reviews, numOfReviews, reviewGroup, visibleReviews } = this.state;
     return (
       <div id='reviewsComponent'>
         <Header rating={rating.overall} numOfReviews={numOfReviews} />
         <RatingsList rating={rating} />
         <ReviewsList reviews={reviews} />
-        <Pagination reviewGroup={reviewGroup} numOfReviews={numOfReviews} updateReviews={this.updateReviews} />
+        <Pagination reviewGroup={reviewGroup} numOfReviews={numOfReviews} updateReviews={this.updateReviews} visibleReviews={visibleReviews} />
       </div>
     );
   }

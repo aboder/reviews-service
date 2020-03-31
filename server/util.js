@@ -1,5 +1,6 @@
-// const Promise = require('bluebird');
 const dbCollections = require('../database/RoomAndReview.js');
+
+const visibleReviews = 4;
 
 const findNumOfTotalReviews = (roomid, callback) => {
   dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
@@ -26,8 +27,8 @@ const findRoom = (roomid, callback) => {
 const findGroupOfReviews = (roomid, reviewgroup, callback) => {
   dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
     .sort({ createdAt: -1 })
-    .limit(7)
-    .skip(reviewgroup * 7)
+    .limit(visibleReviews)
+    .skip(reviewgroup * visibleReviews)
     .exec((err, results) => {
       if (err) {
         callback(err);
@@ -43,6 +44,8 @@ const sendRoomsDefaultState = (roomid, callback) => {
   findRoom(roomid, (roomErr, roomResults) => {
     if (roomErr) {
       callback(roomErr);
+    } else if (roomResults === null) {
+      callback('No room results found');
     } else {
       defaultState.rating = roomResults.rating;
       findNumOfTotalReviews(roomid, (lengthErr, lengthResults) => {
@@ -55,6 +58,7 @@ const sendRoomsDefaultState = (roomid, callback) => {
               callback(reviewErr);
             } else {
               defaultState.reviews = reviewResults;
+              defaultState.visibleReviews = reviewResults.length;
               callback(null, defaultState);
             }
           });
@@ -69,4 +73,5 @@ module.exports = {
   findRoom,
   findGroupOfReviews,
   findNumOfTotalReviews,
+  visibleReviews,
 };
