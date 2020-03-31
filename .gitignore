@@ -2,4 +2,3 @@ node_modules
 public/bundles.js
 /coverage.data
 /coverage/
-.env
