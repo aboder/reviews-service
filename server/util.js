@@ -1,9 +1,10 @@
-const dbCollections = require('../database/RoomAndReview.js');
+const Room = require('./database/models/Room.js');
+const Review = require('./database/models/Review.js');
 
 const visibleReviews = 4;
 
 const findNumOfTotalReviews = (roomid, callback) => {
-  dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
+  Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
     .countDocuments()
     .exec((err, results) => {
       if (err) {
@@ -15,7 +16,7 @@ const findNumOfTotalReviews = (roomid, callback) => {
 };
 
 const findRoom = (roomid, callback) => {
-  dbCollections.Room.findOne({ id: roomid }, (err, results) => {
+  Room.findOne({ id: roomid }, (err, results) => {
     if (err) {
       callback(err);
     } else {
@@ -25,7 +26,7 @@ const findRoom = (roomid, callback) => {
 };
 
 const findGroupOfReviews = (roomid, reviewgroup, callback) => {
-  dbCollections.Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
+  Review.find({ roomid: roomid }, { roomid: 0, _id: 0, __v: 0 })
     .sort({ createdAt: -1 })
     .limit(visibleReviews)
     .skip(reviewgroup * visibleReviews)
