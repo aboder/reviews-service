@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('./index.js');
+const db = require('../index.js');
 
 const roomSchema = new mongoose.Schema({
   id: Number,
@@ -14,18 +14,6 @@ const roomSchema = new mongoose.Schema({
   },
 });
 
-const reviewSchema = new mongoose.Schema({
-  roomid: Number,
-  author: String,
-  authorsAvatar: String,
-  createdAt: Date,
-  text: String,
-});
-
 const Room = mongoose.model('room', roomSchema);
-const Review = mongoose.model('review', reviewSchema);
 
-module.exports = {
-  Room,
-  Review,
-};
+module.exports = Room;
