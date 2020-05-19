@@ -2,3 +2,5 @@ node_modules
 dist/bundle.js
 .eslintrc.js
 package-lock.json
+tests
+.circleci
