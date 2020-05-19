@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://localhost:27017/';
+const mongoUri = 'mongodb://database:27017/aboder';
 
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,

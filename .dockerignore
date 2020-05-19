@@ -1,12 +1,4 @@
 node_modules
-.circleci
-coverage
-tests
-.babelrc
+dist/bundle.js
 .eslintrc.js
-.gitignore
-babel.config.js
-jest.config.js
-README.md 
-webpack.config.js
-client
+package-lock.json

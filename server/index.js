@@ -4,15 +4,14 @@ const util = require('./util.js');
 
 const app = express();
 const PORT = 3001;
-const PUBLIC_DIR = path.join(__dirname, '..', '/public');
+const DIST_DIR = path.join(__dirname, '..', '/dist');
 
-app.use(express.static(PUBLIC_DIR));
+app.use(express.static(DIST_DIR));
 app.use(express.json());
 
 app.get('/api/reviews/:roomid/', (req, res) => {
   const { roomid } = req.params;
   const { reviewgroup } = req.query;
-  console.log(req);
   if (reviewgroup === 'default') {
     util.sendRoomsDefaultState(roomid, (err, result) => {
       if (err) {

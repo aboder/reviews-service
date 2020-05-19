@@ -9,4 +9,4 @@ services:
       - '3001:3001'
 
   database:
-    image: mongo:latest
+    image: 'mongo:4.2.3-bionic'

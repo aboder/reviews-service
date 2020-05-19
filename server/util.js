@@ -1,5 +1,5 @@
-const Room = require('./database/models/Room.js');
-const Review = require('./database/models/Review.js');
+const Room = require('../database/models/Room.js');
+const Review = require('../database/models/Review.js');
 
 const visibleReviews = 4;
 

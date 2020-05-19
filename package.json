@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --coverage",
     "boot": "node server",
-    "seed": "node database/seed.js",
+    "seed": "node database/utils/seed.js",
     "build": "webpack",
     "lint": "eslint"
   },
