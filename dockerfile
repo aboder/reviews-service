@@ -4,7 +4,7 @@ RUN mkdir -p /src/app
 
 WORKDIR /src/app
 
-COPY . .
+COPY . .d
 
 RUN npm install
 
@@ -12,4 +12,4 @@ RUN npm run build
 
 EXPOSE 3001 
 
-CMD ["npm", "run", "boot"]
+CMD ["npm", "run", "boot-prod"]

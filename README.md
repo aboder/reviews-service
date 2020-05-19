@@ -2,6 +2,60 @@
 
 ---
 
+![](https://i.imgur.com/gBLJM78.png)
+
+## Getting Started
+
+This service is supported on Node v12.16.1
+
+Install package dependencies.
+
+`npm install`
+
+------
+
+Install mongodb server community edition if not already installed.
+https://www.mongodb.com/download-center/community
+
+Version 4.2.3 of mongod is supported.
+
+Seed the service database for development.
+
+`npm run seed`
+
+---
+## scripts
+
+`build`:
+
+Builds the webpack bundle of client module.
+
+---
+
+`boot-dev`:
+
+Starts and watches the proxy service server.
+
+__`nodemon` is required for the script, `boot-dev`, and is not included in the package dependencies. `nodemon` must be installed separately or globally.__ 
+
+---
+
+`boot-prod`:
+
+Starts the service server locally.
+
+---
+
+`seed`:
+
+Creates a mongo database `aboder`
+
+
+Creates and seeds collections, `room` and `review`,
+with 100 rooms and 5000 reviews.
+
+---
+
 ## API Spec
 
 `GET /api/reviews/:roomid/?review_group=[0 || selected pagination]`
@@ -17,19 +71,12 @@
 
 | Field | Type |
 | ----- | ---- |
-| roomId | `Number` | 
+| rating| [`Rating{}`](#Response-Property:-Rating)|
+|numOfReviews| `Number`|
 | reviews| [`Reviews[]`](#Response-Property:-Reviews)|
-| averageRating| [`AverageRating{}`](#Response-Property:-Rating)|
+|visibleReviews| `Number`|
 
-#### Response Property: Reviews
-| Field | Type |
-| ----- | ---- |
-|revieweeName|`String`|
-|revieweePhoto|`URL`|
-|createdAt|`Date`|
-|text|`String`|
-
-#### Response Property: Average-Rating
+#### Response Property: Rating
 | Field | Type |
 | ----- | ---- |
 |Overall| `Number(1-5)`|
@@ -40,32 +87,39 @@
 |Cleanliness| `Number(1-5)`|
 |Value| `Number(1-5)`|
 
+#### Response Property: Reviews
+| Field | Type |
+| ----- | ---- |
+|roomId|`Number`|
+|author|`String`|
+|authorsAvatar|`URL`|
+|createdAt|`Date`|
+|text|`String`|
+
 ```
-    {
-        "roomId": 123456789,
-        "reviews": [
-                      {
-                         "revieweeName": "Alex Mitchell",
-                         "revieweePhoto: "somelink.com/6g4137823erg",
-                         "createdAt": "11/22/2019",
-                         "text": "This place is awesome"
-                      },
-                      {
-                         "revieweeName": "Jin Cai",
-                         "revieweePhoto: "somelink.com/6g4asdsd3erg",
-                         "createdAt": "11/19/2019",
-                         "text": "This place sucks"
-                      }
-                   ]
-        "averageRating": {
-                            "Overall": 2.7,
-                            "CheckIn": 2.3,
-                            "Communication": 3.4,
-                            "Accuracy": 2.5,
-                            "Location": 3.6,
-                            "Cleanliness": 2.4,
-                            "Value": 2.5
-                         }
-    }
+	{
+		"rating": {
+			"communication":4,
+			"location":4,
+			"value":3,
+			"checkin":4,
+			"accuracy":4,
+			"cleanliness":3,
+			"overall":3.6666666666666665
+		},
+		"numOfReviews":50,
+		"reviews":[
+			{
+				"author":"Matilda",
+				"authorsAvatar":"https://s3.amazonaws.com/uifaces/faces/twitter/jitachi/128.jpg",
+				"createdAt":"2020-04-17T00:38:16.081Z",
+				"text":"Harum asperiores vitae et. Sed ipsam est id ipsa iusto itaque atque ut. Rem sequi ut qui perferendis aspernatur."
+			},
+			...,
+			...,
+			...,
+		],
+		"visibleReviews":4
+	}
 ```
 ---
