@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.16.1
-      - image: circlci/mongo:4.2-bionic-ram
+      - image: circleci/mongo:4.2-bionic-ram
         name: database
     working_directory: ~/reviews-service
     steps:
