@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/node
       - image: circlci/mongo
-      name: database
+        name: database
     working_directory: ~/reviews-service
     steps:
       - checkout
