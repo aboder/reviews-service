@@ -9,7 +9,7 @@
     "boot-prod": "node server",
     "seed": "node database/utils/seed.js",
     "build": "webpack",
-    "lint": "eslint"
+    "lint": "eslint './**/*.js?(x)'"
   },
   "repository": {
     "type": "git",

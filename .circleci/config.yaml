@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build-and-test:
+  test:
     executor:
       name: node/default
     steps:
@@ -11,7 +11,25 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+  lint:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run eslint
+  # deploy:
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         command: |
+  #           git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
 workflows:
-    build-and-test:
+    lint, test, and deploy:
       jobs:
-        - build-and-test
+        - test
+        - lint
+        # - deploy:
+        #   requires:
+        #     - test
