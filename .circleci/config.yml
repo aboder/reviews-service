@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
   build:
     docker:
@@ -10,11 +8,12 @@ jobs:
     working_directory: ~/reviews-service
     steps:
       - checkout
-      run: npm install
-      run: npm run build
-      run: npm run seed
+      - run: npm install
+      - run: npm run build
+      - run: npm run seed
 
 workflows:
+  version: 2
   build:
     jobs:
       - build
