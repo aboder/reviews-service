@@ -4,11 +4,11 @@ const generateData = require('./generateData.js');
 
 const insertRoomsAndReviews = () => {
   Room.create(generateData.generate100Rooms())
-    .then(console.log('rooms seeded'))
-    .catch(console.log('error seeding rooms'));
+    .then(res => console.log('rooms seeded'))
+    .catch(err => console.log('error seeding rooms'));
   Review.create(generateData.generate5000Reviews())
-    .then(console.log('reviews seeded'))
-    .catch(console.log('error seeding reviews'));
+    .then(res => console.log('reviews seeded'))
+    .catch(err => console.log('error seeding reviews'));
 };
 
 insertRoomsAndReviews();
