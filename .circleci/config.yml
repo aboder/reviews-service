@@ -1,6 +1,4 @@
 version: 2.1
-orbs: 
-  node: circleci/node@1.1.6
 jobs:
   test:
     docker:
@@ -13,18 +11,18 @@ jobs:
       - run: npm install
       - run: npm test
   push:
-    executor:
-      name: node/default
+    machine: true
+    working_directory: ~/reviews-service
     steps:
       - checkout
+      - run: 
+          name: Build Docker image
+          command: docker build -t axmitchell/reviews-service
       - run:
-        name: Build Docker image
-        command: docker build -t axmitchell/reviews-service
-      - run:
-        name: Push image to DockerHub
-        command: |
-          docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PW
-          docker push axmitchell/reviews-service
+          name: Push image to DockerHub
+          command: |
+            docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PW
+            docker push axmitchell/reviews-service
 
 workflows:
   version: 2.1
