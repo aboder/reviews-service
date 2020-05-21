@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Push image to DockerHub
           command: |
-            docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PW
+            docker login -u "$DOCKERHUB_LOGIN" -p "$DOCKERHUB_PW"
             docker push axmitchell/reviews-service
 
 workflows:
