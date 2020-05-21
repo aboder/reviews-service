@@ -23,7 +23,7 @@ jobs:
           docker push axmitchell/reviews-service
 
 workflows:
-  version: 2
+  version: 2.1
   test-and-push:
     jobs:
       - test
