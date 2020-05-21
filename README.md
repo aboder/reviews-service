@@ -19,10 +19,6 @@ https://www.mongodb.com/download-center/community
 
 Version 4.2.3 of mongod is supported.
 
-Seed the service database for development.
-
-`npm run seed`
-
 ---
 ## scripts
 
