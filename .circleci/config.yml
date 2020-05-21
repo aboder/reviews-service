@@ -1,4 +1,6 @@
 version: 2.1
+orbs: 
+  node: circleci/node@1.1.6
 jobs:
   test:
     docker:
@@ -11,6 +13,8 @@ jobs:
       - run: npm install
       - run: npm test
   push:
+    executor:
+      name: node/default
     steps:
       - checkout
       - run:
