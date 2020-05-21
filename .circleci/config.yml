@@ -10,8 +10,23 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+  push:
+    steps:
+      - checkout
+      - run:
+        name: Build Docker image
+        command: docker build -t axmitchell/reviews-service
+      -run:
+        name: Push image to DockerHub
+        command: |
+          docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PW
+          docker push axmitchell/reviews-service
+
 workflows:
   version: 2
-  test:
+  test-and-push:
     jobs:
       - test
+      - push
+        requires:
+          - test
