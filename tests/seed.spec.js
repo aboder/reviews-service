@@ -6,7 +6,7 @@ describe('db manipulation', () => {
   let connection;
   let db;
   beforeAll(() => {
-    connection = mongoose.connect('mongodb://localhost/', {
+    connection = mongoose.connect('mongodb://database:27017/aboder', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
