@@ -24,11 +24,11 @@ jobs:
             docker login -u "$DOCKERHUB_LOGIN" -p "$DOCKERHUB_PW"
             docker push axmitchell/reviews-service
       - run:
-        name: Deploy to Heroku
-        command: |
-            docker login --username="$HEROKU_LOGIN" --password="$HEROKU_API_KEY" registry.heroku.com
-            docker tag axmitchell/reviews-service registry.heroku.com/$HEROKU_APP_NAME/web
-            docker push registry.heroku.com/$HEROKU_APP_NAME/web
+          name: Deploy to Heroku
+          command: |
+              docker login --username="$HEROKU_LOGIN" --password="$HEROKU_API_KEY" registry.heroku.com
+              docker tag axmitchell/reviews-service registry.heroku.com/$HEROKU_APP_NAME/web
+              docker push registry.heroku.com/$HEROKU_APP_NAME/web
 
 workflows:
   version: 2.1
