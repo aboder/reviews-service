@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const dbCollections = require('../database/RoomAndReview');
+const Review = require('../database/models/Review.js');
+const Room = require('../database/models/Room.js');
 
 describe('db manipulation', () => {
   let connection;
@@ -15,11 +16,11 @@ describe('db manipulation', () => {
     db = mongoose.connection;
   });
   afterAll(() => {
-    dbCollections.Room.deleteOne({ id: 666 })
+    Room.deleteOne({ id: 666 })
       .then(console.log)
       .catch(console.log);
 
-    dbCollections.Review.deleteOne({ roomid: 666 })
+    Review.deleteOne({ id: 666 })
       .then(console.log)
       .catch(console.log);
     connection.close();
@@ -47,14 +48,14 @@ describe('db manipulation', () => {
       text: 'Worship me',
     };
 
-    dbCollections.Room.create(mockRoom);
-    dbCollections.Review.create(mockReview);
+    Room.create(mockRoom);
+    Review.create(mockReview);
 
-    dbCollections.Room.findOne({ id: 666 })
+    Room.findOne({ id: 666 })
       .then((insertedRoom) => expect(insertedRoom).toEqual(mockRoom))
       .catch(console.log);
 
-    dbCollections.Review.findOne({ roomid: 666 })
+    Review.findOne({ roomid: 666 })
       .then((insertedReview) => expect(insertedReview).toEqual(mockReview))
       .catch(console.log);
   });

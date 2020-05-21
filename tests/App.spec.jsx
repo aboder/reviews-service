@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../client/components/App';
-import RatingsList from '../client/components/RatingsList';
-import ReviewsList from '../client/components/ReviewsList';
+import App from '../src/components/App';
+import RatingsList from '../src/components/RatingsList';
+import ReviewsList from '../src/components/ReviewsList';
 import mockData from './mockData.js';
 
 describe('App rendering', () => {
