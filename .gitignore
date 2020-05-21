@@ -2,3 +2,4 @@ node_modules
 public/bundles.js
 /coverage.data
 /coverage/
+package-lock.json
